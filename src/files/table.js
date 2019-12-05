@@ -89,10 +89,7 @@ class RawTableFile extends BaseFile {
             {draggable}
           </div>
         </td>
-        <td className="size">{fileSize(size)}</td>
-        <td className="modified">
-          {typeof modified === 'undefined' ? '-' : Moment(modified, 'x').fromNow()}
-        </td>
+        
       </tr>
     )
 

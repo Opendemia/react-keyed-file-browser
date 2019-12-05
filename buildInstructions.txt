@@ -1,0 +1,52 @@
+D:\React-Workspace\react-keyed-file-browser-master>npm run prepublish
+> react-keyed-file-browser@1.4.3 prepublish D:\React-Workspace\react-keyed-file-browser-master
+> npm run build
+
+> react-keyed-file-browser@1.4.3 build D:\React-Workspace\react-keyed-file-browser-master
+> npm run build-js && npm run build-css
+
+> react-keyed-file-browser@1.4.3 build-js D:\React-Workspace\react-keyed-file-browser-master
+> node .//node_modules//webpack//bin//webpack.js
+
+Hash: 39059271932552f3ef32
+Version: webpack 4.29.6
+Time: 3868ms
+Built at: 03/21/2019 10:15:48 PM
+                      Asset      Size  Chunks             Chunk Names
+react-keyed-file-browser.js  56.2 KiB       0  [emitted]  main
+Entrypoint main = react-keyed-file-browser.js
+[0] external "react" 42 bytes {0} [built]
+[1] external "prop-types" 42 bytes {0} [built]
+[2] external "moment" 42 bytes {0} [built]
+[3] external "react-dnd" 42 bytes {0} [built]
+[4] external "react-dnd-html5-backend" 42 bytes {0} [built]
+[5] external "classnames" 42 bytes {0} [built]
+[6] ./src/index.js + 29 modules 109 KiB {0} [built]
+    | ./src/index.js 768 bytes [built]
+    | ./src/details/index.js 67 bytes [built]
+    | ./src/filters/index.js 67 bytes [built]
+    | ./src/base-file.js 9.22 KiB [built]
+    | ./src/headers/index.js 61 bytes [built]
+    | ./src/files/index.js 300 bytes [built]
+    | ./src/base-folder.js 8.66 KiB [built]
+    | ./src/folders/index.js 225 bytes [built]
+    | ./src/groupers/index.js 150 bytes [built]
+    | ./src/sorters/index.js 124 bytes [built]
+    | ./src/browser.js 29.4 KiB [built]
+    | ./src/icons/index.js 81 bytes [built]
+    | ./src/details/default.js 3.68 KiB [built]
+    | ./src/filters/default.js 3.79 KiB [built]
+    | ./src/constants.js 1.9 KiB [built]
+    |     + 15 hidden modules
+
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/
+
+> react-keyed-file-browser@1.4.3 build-css D:\React-Workspace\react-keyed-file-browser-master
+> node .//node_modules//node-sass//bin//node-sass src//browser.sass dist//react-keyed-file-browser.css
+
+Rendering Complete, saving .css file...
+Wrote CSS to D:\React-Workspace\react-keyed-file-browser-master\dist\react-keyed-file-browser.css
+
+D:\React-Workspace\react-keyed-file-browser-master>
