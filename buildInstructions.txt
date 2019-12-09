@@ -1,3 +1,10 @@
+npm run prepublish
+npm run build
+npm run build-js && npm run build-css
+node node_modules/webpack/bin/webpack.js
+node node_modules/node-sass/bin/node-sass src/browser.sass dist/react-keyed-file-browser.css
+
+
 D:\React-Workspace\react-keyed-file-browser-master>npm run prepublish
 > react-keyed-file-browser@1.4.3 prepublish D:\React-Workspace\react-keyed-file-browser-master
 > npm run build
@@ -6,7 +13,7 @@ D:\React-Workspace\react-keyed-file-browser-master>npm run prepublish
 > npm run build-js && npm run build-css
 
 > react-keyed-file-browser@1.4.3 build-js D:\React-Workspace\react-keyed-file-browser-master
-> node .//node_modules//webpack//bin//webpack.js
+> node ./node_modules/webpack//bin//webpack.js
 
 Hash: 39059271932552f3ef32
 Version: webpack 4.29.6
