@@ -86,7 +86,7 @@ class RawFileBrowser extends React.Component {
     onDeleteFile: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     onDeleteFolder: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     onDownloadFile: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-    onInputChange: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    onUsedChange: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 
     onSelect: PropTypes.func,
     onSelectFile: PropTypes.func,
@@ -284,6 +284,15 @@ class RawFileBrowser extends React.Component {
       actionTarget: null,
     }, () => {
       this.props.onDownloadFile(key)
+    })
+  }
+
+  usedChanged = (key) => {
+    this.setState({
+      activeAction: null,
+      actionTarget: null,
+    }, () => {
+      this.props.onUsedChange(key)
     })
   }
 

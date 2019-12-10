@@ -12,7 +12,7 @@ class RawTableFile extends BaseFile {
     const {
       isDragging, isDeleting, isRenaming, isOver, isSelected,
       action, url, browserProps, connectDragPreview,
-      depth, size, modified,
+      depth, size, modified, used
     } = this.props
 
     const icon = browserProps.icons[this.getFileType()] || browserProps.icons.File
@@ -97,7 +97,8 @@ class RawTableFile extends BaseFile {
           type="checkbox" 
           id="used" 
           name="used"
-          value={}
+          value={used}
+          onChange={this.handleUsedEdit}
         ></input>
       </tr>
     )
