@@ -142,6 +142,10 @@ class BaseFile extends React.Component {
     this.props.browserProps.endAction()
   }
 
+  handleUsedEdit = (event) => {
+
+  }
+
   connectDND(render) {
     const inAction = (this.props.isDragging || this.props.action)
     if (

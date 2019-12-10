@@ -89,7 +89,16 @@ class RawTableFile extends BaseFile {
             {draggable}
           </div>
         </td>
-        
+        <td>
+
+        </td>
+        <label htmlFor="used">Used:</label>
+        <input 
+          type="checkbox" 
+          id="used" 
+          name="used"
+          value={}
+        ></input>
       </tr>
     )
 
