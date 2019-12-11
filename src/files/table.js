@@ -90,8 +90,6 @@ class RawTableFile extends BaseFile {
           </div>
         </td>
         <td>
-
-        </td>
         <label htmlFor="used">Used:</label>
         <input 
           type="checkbox" 
@@ -100,6 +98,7 @@ class RawTableFile extends BaseFile {
           value={used}
           onChange={this.handleUsedEdit}
         ></input>
+        </td>
       </tr>
     )
 

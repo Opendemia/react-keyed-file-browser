@@ -478,7 +478,7 @@ class RawFileBrowser extends React.Component {
       moveFolder: this.props.onMoveFolder ? this.moveFolder : undefined,
       deleteFile: this.props.onDeleteFile ? this.deleteFile : undefined,
       deleteFolder: this.props.onDeleteFolder ? this.deleteFolder : undefined,
-      usedChanged: this.props.onUsedChange ? this.usedChanged : undefined,
+      usedChanged: this.usedChanged,
 
       getItemProps: getItemProps,
     }
