@@ -144,7 +144,7 @@ class BaseFile extends React.Component {
 
   handleUsedEdit = (event) => {
     event.preventDefault()
-    this.props.browserProps.usedChanged(event.target.value)
+    this.props.browserProps.usedChanged(this.props.fileKey)
   }
 
   connectDND(render) {
