@@ -95,7 +95,7 @@ class RawTableFile extends BaseFile {
           type="checkbox" 
           id="used" 
           name="used"
-          value={used}
+          checked={used}
           onChange={this.handleUsedEdit}
         ></input>
         </td>

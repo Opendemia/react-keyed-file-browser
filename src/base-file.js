@@ -55,6 +55,7 @@ class BaseFile extends React.Component {
     }
     return name
   }
+
   getExtension() {
     const blobs = this.props.fileKey.split('.')
     return blobs[blobs.length - 1].toLowerCase().trim()
