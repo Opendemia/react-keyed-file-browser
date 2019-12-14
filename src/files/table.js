@@ -12,7 +12,7 @@ class RawTableFile extends BaseFile {
     const {
       isDragging, isDeleting, isRenaming, isOver, isSelected,
       action, url, browserProps, connectDragPreview,
-      depth, size, modified, used
+      depth, size, modified, used, reason
     } = this.props
 
     const icon = browserProps.icons[this.getFileType()] || browserProps.icons.File
@@ -74,30 +74,41 @@ class RawTableFile extends BaseFile {
     }
 
     let row = (
-      <tr
-        className={ClassNames('file', {
-          pending: action,
-          dragging: isDragging,
-          dragover: isOver,
-          selected: isSelected,
-        })}
-        onClick={this.handleItemClick}
-        onDoubleClick={this.handleItemDoubleClick}
-      >
-        <td className="name">
-          <div style={{ paddingLeft: (depth * 16) + 'px' }}>
-            {draggable}
-          </div>
-        </td>
-        <td>
-        <input 
-          type="checkbox" 
-          name="used"
-          checked={this.props.used}
-          onChange={this.handleUsedEdit}
-        ></input>
-        </td>
-      </tr>
+      <div>
+        <tr
+          className={ClassNames('file', {
+            pending: action,
+            dragging: isDragging,
+            dragover: isOver,
+            selected: isSelected,
+          })}
+          onClick={this.handleItemClick}
+          onDoubleClick={this.handleItemDoubleClick}
+        >
+          <td className="name">
+            <div style={{ paddingLeft: (depth * 16) + 'px' }}>
+              {draggable}
+            </div>
+          </td>
+          <td>
+          <input 
+            type="checkbox" 
+            name="used"
+            checked={this.props.used}
+            onChange={this.handleUsedEdit}
+          ></input>
+          </td>
+        </tr>
+        {isSelected ? 
+        <tr>
+          <td>
+          {this.props.reason}
+          </td>
+        </tr>
+        :
+        null
+        }
+      </div>
     )
 
     return this.connectDND(row)

@@ -12,30 +12,35 @@ storiesOf('FileBrowser', module)
           key: 'animals/',
           modified: +Moment().subtract(1, 'hours'),
           size: 0,
+          reason: "test"
         },
         {
           key: 'animals/dog.png',
           modified: +Moment().subtract(1, 'hours'),
           size: 0,
-          used: true
+          used: true,
+          reason: "test"
         },
         {
           key: 'cat.png',
           modified: +Moment().subtract(1, 'hours'),
           size: 1.5 * 1024 * 1024,
-          used: true
+          used: true,
+          reason: "test"
         },
         {
           key: 'kitten.png',
           modified: +Moment().subtract(3, 'days'),
           size: 545 * 1024,
-          used: true
+          used: true,
+          reason: "test"
         },
         {
           key: 'elephant.png',
           modified: +Moment().subtract(3, 'days'),
           size: 52 * 1024,
-          used: true
+          used: true,
+          reason: "test"
         },
       ]}
       onUsedChange={(event) => {console.log(event)}}
