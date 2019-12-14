@@ -90,10 +90,8 @@ class RawTableFile extends BaseFile {
           </div>
         </td>
         <td>
-        <label htmlFor="used">Used:</label>
         <input 
           type="checkbox" 
-          id="used" 
           name="used"
           checked={this.props.used}
           onChange={this.handleUsedEdit}
