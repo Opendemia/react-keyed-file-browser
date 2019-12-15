@@ -74,7 +74,7 @@ class RawTableFile extends BaseFile {
     }
 
     let row = (
-      <div>
+      <React.Fragment>
         <tr
           className={ClassNames('file', {
             pending: action,
@@ -99,17 +99,19 @@ class RawTableFile extends BaseFile {
           ></input>
           </td>
         </tr>
-        {isSelected ? 
-        <tr>
-          <td>
-          {this.props.reason}
-          </td>
-        </tr>
-        :
-        null
+        {isSelected ?
+          <tr>
+            <td>
+            {this.props.reason}
+            </td>
+          </tr>
+          :
+          null
         }
-      </div>
+      </React.Fragment>
     )
+
+    console.log(this.connectDND(row))
 
     return this.connectDND(row)
   }
