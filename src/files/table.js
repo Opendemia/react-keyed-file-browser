@@ -74,6 +74,7 @@ class RawTableFile extends BaseFile {
     }
 
     let row = (
+      <tbody>
         <tr
           className={ClassNames('file', {
             pending: action,
@@ -98,6 +99,16 @@ class RawTableFile extends BaseFile {
           ></input>
           </td>
         </tr>
+        {isSelected && this.props.reason ?
+          <tr>
+            <td>
+            {this.props.reason}
+            </td>
+          </tr>
+          :
+          null
+        }
+      </tbody>
     )
 
     console.log(this.connectDND(row))
