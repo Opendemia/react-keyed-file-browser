@@ -99,7 +99,7 @@ class RawTableFile extends BaseFile {
           ></input>
           </td>
         </tr>
-        {isSelected ?
+        {isSelected && this.props.reason ?
           <tr>
             <td>
             {this.props.reason}

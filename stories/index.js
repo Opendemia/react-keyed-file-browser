@@ -12,7 +12,6 @@ storiesOf('FileBrowser', module)
           key: 'animals/',
           modified: +Moment().subtract(1, 'hours'),
           size: 0,
-          reason: "test"
         },
         {
           key: 'animals/dog.png',
@@ -25,8 +24,7 @@ storiesOf('FileBrowser', module)
           key: 'cat.png',
           modified: +Moment().subtract(1, 'hours'),
           size: 1.5 * 1024 * 1024,
-          used: true,
-          reason: "test"
+          used: true
         },
         {
           key: 'kitten.png',
