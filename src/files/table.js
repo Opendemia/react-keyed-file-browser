@@ -111,8 +111,6 @@ class RawTableFile extends BaseFile {
       </tbody>
     )
 
-    console.log(this.connectDND(row))
-
     return this.connectDND(row)
   }
 }
