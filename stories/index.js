@@ -18,7 +18,7 @@ storiesOf('FileBrowser', module)
           modified: +Moment().subtract(1, 'hours'),
           size: 0,
           used: true,
-          reason: "test"
+          course: "test"
         },
         {
           key: 'cat.png',
@@ -31,14 +31,14 @@ storiesOf('FileBrowser', module)
           modified: +Moment().subtract(3, 'days'),
           size: 545 * 1024,
           used: true,
-          reason: "test"
+          course: "test"
         },
         {
           key: 'elephant.png',
           modified: +Moment().subtract(3, 'days'),
           size: 52 * 1024,
           used: true,
-          reason: "test"
+          course: "test"
         },
       ]}
       onUsedChange={(event) => {console.log(event)}}

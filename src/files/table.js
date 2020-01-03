@@ -12,7 +12,7 @@ class RawTableFile extends BaseFile {
     const {
       isDragging, isDeleting, isRenaming, isOver, isSelected,
       action, url, browserProps, connectDragPreview,
-      depth, size, modified, used, reason
+      depth, size, modified, used, course
     } = this.props
 
     const icon = browserProps.icons[this.getFileType()] || browserProps.icons.File
@@ -99,10 +99,10 @@ class RawTableFile extends BaseFile {
           ></input>
           </td>
         </tr>
-        {isSelected && this.props.reason ?
+        {isSelected && this.props.course ?
           <tr>
             <td>
-            {this.props.reason}
+            {this.props.course}
             </td>
           </tr>
           :
