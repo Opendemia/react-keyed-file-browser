@@ -28,7 +28,7 @@ class RawTableFile extends BaseFile {
             onClick={this.handleFileClick}
           >
             {icon}
-            {this.getName()}
+            
           </a>
           <div>
             <button type="submit">

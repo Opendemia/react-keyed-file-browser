@@ -26,7 +26,6 @@ class RawTableFolder extends BaseFolder {
             onClick={this.handleFileClick}
           >
             {icon}
-            {this.getName()}
           </a>
           <div>
             <button type="submit">

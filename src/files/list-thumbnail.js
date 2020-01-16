@@ -44,7 +44,6 @@ class RawListThumbnailFile extends BaseFile {
               download="download"
               onClick={this.handleFileClick}
             >
-              {this.getName()}
             </a>
             <div>
               <button type="submit">
