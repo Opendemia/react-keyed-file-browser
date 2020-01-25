@@ -95,7 +95,7 @@ class RawTableFile extends BaseFile {
             <div class="fac fac-checkbox-o fac-success ">
               <span></span>
               <input
-                id="box-example"
+                id={"box-example"+this.getName()}
                 type="checkbox"
                 name="used"
                 value="1"
@@ -103,7 +103,7 @@ class RawTableFile extends BaseFile {
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
               ></input>
-              <label for="box-example"></label>
+              <label for={"box-example"+this.getName()}></label>
             </div>
           </td>
         </tr>
