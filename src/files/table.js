@@ -76,6 +76,7 @@ class RawTableFile extends BaseFile {
       draggable = connectDragPreview(draggable);
     }
 
+    //random number is generated to keep id's unique so check boxes will function correctly
     let row = (
       <tbody>
         <tr
@@ -95,7 +96,7 @@ class RawTableFile extends BaseFile {
             <div class="fac fac-checkbox-o fac-success ">
               <span></span>
               <input
-                id={"box-example"+this.getName()}
+                id={"box-"+this.getName()+"-"+Math.floor(Math.random() * 10000000000)}
                 type="checkbox"
                 name="used"
                 value="1"
