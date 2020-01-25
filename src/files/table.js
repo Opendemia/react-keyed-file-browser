@@ -75,7 +75,8 @@ class RawTableFile extends BaseFile {
     if (typeof browserProps.moveFile === "function") {
       draggable = connectDragPreview(draggable);
     }
-
+    console.log("THIS STATE IS")
+    console.log(this.state)
     let row = (
       <tbody>
         <tr
@@ -94,19 +95,17 @@ class RawTableFile extends BaseFile {
           <td>
             <div class="fac fac-checkbox-o fac-success ">
               <span></span>
-              <input
-                id="box-example"
-                type="checkbox"
-                name="used"
-                value="1"
-                style={{display: "none"}}
-                checked={this.props.used}
-                onChange={this.handleUsedEdit}
-              ></input>
-              <label for="box-example">
+              <label>
+                <input
+                  type="checkbox"
+                  name="used"
+                  value="1"
+                  style={{ display: "none" }}
+                  checked={this.props.used}
+                  onChange={this.handleUsedEdit}
+                ></input>
               </label>
             </div>
-            
           </td>
         </tr>
         {isSelected && this.props.course ? (

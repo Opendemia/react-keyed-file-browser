@@ -4,6 +4,8 @@ npm run build-js && npm run build-css
 node node_modules/webpack/bin/webpack.js
 node node_modules/node-sass/bin/node-sass src/browser.sass dist/react-keyed-file-browser.css
 
+npm run prepublish && npm run build && npm run build-js && npm run build-css && node node_modules/webpack/bin/webpack.js && node node_modules/node-sass/bin/node-sass src/browser.sass dist/react-keyed-file-browser.css
+
 
 D:\React-Workspace\react-keyed-file-browser-master>npm run prepublish
 > react-keyed-file-browser@1.4.3 prepublish D:\React-Workspace\react-keyed-file-browser-master
