@@ -99,14 +99,12 @@ class RawTableFile extends BaseFile {
                 type="checkbox"
                 name="used"
                 value="1"
-                style={{display: "none"}}
+                style={{ display: "none" }}
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
               ></input>
-              <label for="box-example">
-              </label>
+              <label for="box-example"></label>
             </div>
-            
           </td>
         </tr>
         {isSelected && this.props.course ? (
