@@ -111,7 +111,9 @@ class RawTableFile extends BaseFile {
         </tr>
         {isSelected && this.props.course ? (
           <tr>
-            <td>Course: {this.props.course}</td>
+            <td>
+              <div>Course: {this.props.course}</div>
+            </td>
           </tr>
         ) : null}
       </tbody>
