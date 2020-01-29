@@ -112,7 +112,9 @@ class RawTableFile extends BaseFile {
         </tr>
         {isSelected && this.props.course ? (
           <tr>
-            <td>{this.props.course}</td>
+            <td style={{paddingTop: '0rem !important'}}>
+              <div style={{fontWeight: '600', marginLeft: '1rem'}}>Course: {this.props.course}</div>
+            </td>
           </tr>
         ) : null}
       </tbody>
