@@ -596,6 +596,7 @@ class RawFileBrowser extends React.Component {
     let renderedFiles
 
     let files = this.props.files.concat([])
+    let citations = this.props.citations.concat([])
     if (this.state.activeAction === 'createFolder') {
       files.push({
         key: this.state.actionTarget,
@@ -609,7 +610,7 @@ class RawFileBrowser extends React.Component {
       files.map((file) => {
         let skip = false
         terms.map((term) => {
-          if (file.key.toLowerCase().trim().indexOf(term) === -1) {
+          if (file.key.toLowerCase().trim().indexOf(term) === -1 && citations.find(citation => file.citationID === citation.citationId).quotes.findIndex(quote.quote === term) === -1) {
             skip = true
           }
         })
