@@ -33,7 +33,8 @@ storiesOf('FileBrowser', module)
           modified: +Moment().subtract(3, 'days'),
           size: 545 * 1024,
           used: true,
-          course: "test"
+          course: "test",
+          citationID: "1235"
         },
         {
           key: 'elephant.png',
@@ -46,6 +47,10 @@ storiesOf('FileBrowser', module)
       citations ={[
         {
           citationId: "1234",
+          quotes:[{quote: "Test", comments: "new comment"}]
+        },
+        {
+          citationId: "1235",
           quotes:[{quote: "Test"}]
         }
       ]}
