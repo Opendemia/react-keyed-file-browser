@@ -99,6 +99,7 @@ class RawTableFile extends BaseFile {
               <input
                 id={randomId}
                 type="checkbox"
+                myType="styled"
                 name="used"
                 value="1"
                 style={{ display: "none" }}
