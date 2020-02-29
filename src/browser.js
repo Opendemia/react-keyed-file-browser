@@ -614,7 +614,7 @@ class RawFileBrowser extends React.Component {
         terms.map((term) => {
           let citation = citations.find(citation => file.citationID === citation.citationId)
           if(citation == undefined || citation.quotes == undefined || citation.quotes == null){ skip = true }
-          else if (file.key.toLowerCase().trim().indexOf(term) === -1 && citation.quotes.findIndex(quote => quote.quote && (quote.quote != null || quote.quote === term) === -1)) {
+          else if (file.key.toLowerCase().trim().indexOf(term) === -1 && citation.quotes.findIndex(quote => quote.quote && quote.quote.toLowerCase().trim().indexOf(term)) === -1) {
             skip = true
           }
         })
