@@ -12,6 +12,7 @@ storiesOf('FileBrowser', module)
           key: 'animals/',
           modified: +Moment().subtract(1, 'hours'),
           size: 0,
+          citationID: "1234"
         },
         {
           key: 'animals/dog.png',
@@ -24,7 +25,8 @@ storiesOf('FileBrowser', module)
           key: 'cat.png',
           modified: +Moment().subtract(1, 'hours'),
           size: 1.5 * 1024 * 1024,
-          used: true
+          used: true,
+          citationID: "1234"
         },
         {
           key: 'kitten.png',
@@ -39,7 +41,13 @@ storiesOf('FileBrowser', module)
           size: 52 * 1024,
           used: true,
           course: "test"
-        },
+        }
+      ]}
+      citations ={[
+        {
+          citationId: "1234",
+          quotes:[{quote: "Test"}]
+        }
       ]}
       onUsedChange={(event) => {console.log(event)}}
     />
