@@ -37,6 +37,7 @@ function getItemProps(file, browserProps) {
 class RawFileBrowser extends React.Component {
   static propTypes = {
     files: PropTypes.array.isRequired,
+    citations: PropTypes.array.isRequired,
     actions: PropTypes.node,
     showActionBar: PropTypes.bool.isRequired,
     canFilter: PropTypes.bool.isRequired,
@@ -597,6 +598,7 @@ class RawFileBrowser extends React.Component {
 
     let files = this.props.files.concat([])
     let citations = this.props.citations.concat([])
+    console.log(citations)
     if (this.state.activeAction === 'createFolder') {
       files.push({
         key: this.state.actionTarget,
