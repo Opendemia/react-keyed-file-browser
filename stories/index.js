@@ -47,7 +47,7 @@ storiesOf('FileBrowser', module)
       citations ={[
         {
           citationId: "1234",
-          quotes:[{quote: "Test", comments: "new comment"}]
+          quotes:[{quote: "Test", comment: "new comment"}]
         },
         {
           citationId: "1235",
