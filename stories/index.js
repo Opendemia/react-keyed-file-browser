@@ -20,7 +20,7 @@ storiesOf('FileBrowser', module)
           size: 0,
           used: true,
           course: "test",
-          flag: {"color": "Pink"}
+          flag: {"Pink": "test"}
         },
         {
           key: 'cat.png',
@@ -36,7 +36,7 @@ storiesOf('FileBrowser', module)
           used: true,
           course: "test",
           citationID: "1235",
-          flag: {"color": "Red"}
+          flag: {"Pink": "Test"}
         },
         {
           key: 'elephant.png',
