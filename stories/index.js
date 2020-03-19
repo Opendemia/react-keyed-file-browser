@@ -19,7 +19,8 @@ storiesOf('FileBrowser', module)
           modified: +Moment().subtract(1, 'hours'),
           size: 0,
           used: true,
-          course: "test"
+          course: "test",
+          flag: {"color": "Pink"}
         },
         {
           key: 'cat.png',
@@ -34,7 +35,8 @@ storiesOf('FileBrowser', module)
           size: 545 * 1024,
           used: true,
           course: "test",
-          citationID: "1235"
+          citationID: "1235",
+          flag: {"color": "Red"}
         },
         {
           key: 'elephant.png',
@@ -122,50 +124,52 @@ storiesOf('FileBrowser', module)
       icons={Icons.FontAwesome(4)}
       files={[
         {
-          key: 'new-folder/',
+          key: 'animals/',
           modified: +Moment().subtract(1, 'hours'),
           size: 0,
+          citationID: "1234"
         },
         {
-          key: 'documents/sub-documents/word.doc',
+          key: 'animals/dog.png',
+          modified: +Moment().subtract(1, 'hours'),
+          size: 0,
+          used: true,
+          course: "test",
+          flag: {"color": "Pink"}
+        },
+        {
+          key: 'cat.png',
           modified: +Moment().subtract(1, 'hours'),
           size: 1.5 * 1024 * 1024,
+          used: true,
+          citationID: "1234"
         },
         {
-          key: 'documents/sub-documents/presentation.pptx',
+          key: 'kitten.png',
           modified: +Moment().subtract(3, 'days'),
           size: 545 * 1024,
+          used: true,
+          course: "test",
+          citationID: "1235",
+          flag: {"color": "Red"}
         },
         {
-          key: 'documents/plain.txt',
+          key: 'elephant.png',
           modified: +Moment().subtract(3, 'days'),
           size: 52 * 1024,
+          used: true,
+          course: "test"
+        }
+      ]}
+      citations ={[
+        {
+          citationId: "1234",
+          quotes:[{quote: "Test", comment: "new comment"}]
         },
         {
-          key: 'documents/pdf.pdf',
-          modified: +Moment().subtract(1, 'hours'),
-          size: 1.5 * 1024 * 1024,
-        },
-        {
-          key: 'documents/spreadsheet.xlsx',
-          modified: +Moment().subtract(3, 'months'),
-          size: 545 * 1024,
-        },
-        {
-          key: 'downloads/package.zip',
-          modified: +Moment().subtract(2, 'days'),
-          size: 52 * 1024,
-        },
-        {
-          key: 'movies/video.mp4',
-          modified: +Moment().subtract(0.5, 'hours'),
-          size: 1.5 * 1024 * 1024,
-        },
-        {
-          key: 'music/song.mp3',
-          modified: +Moment().subtract(32, 'days'),
-          size: 545 * 1024,
-        },
+          citationId: "1235",
+          quotes:[{quote: "Test"}]
+        }
       ]}
       renderStyle="list"
       onDownloadFile={() => {}}
