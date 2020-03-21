@@ -663,7 +663,7 @@ class RawFileBrowser extends React.Component {
           } else {
             contents = (<tr>
               <td colSpan="100">
-                {this.props.noFilesMessage}
+              <this.props.noFilesMessage />
               </td>
             </tr>)
           }
