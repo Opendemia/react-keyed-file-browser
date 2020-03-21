@@ -95,8 +95,8 @@ class RawTableFile extends BaseFile {
           </td>
           
           <td> 
-          { this.props.flag &&
-            <span className={`badge badge-pill badge-${Object.keys(this.props.flag)[0]}`}> </span> 
+          { this.props.label &&
+            <span className={`badge badge-pill badge-${Object.keys(this.props.label)[0]}`}> </span> 
           }
           </td>
           
