@@ -94,11 +94,11 @@ class RawTableFile extends BaseFile {
             <div style={{ paddingLeft: depth * 16 + "px" }}>{draggable}</div>
           </td>
           
-          <td> 
+         {/* <td> 
           { this.props.label &&
             <span className={`mb-1 badge badge-pill badge-${this.props.label}`}> </span> 
           }
-          </td>
+        </td> */}
           
           <td>
             <div class="fac fac-checkbox-o fac-success ">
