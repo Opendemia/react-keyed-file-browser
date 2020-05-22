@@ -104,14 +104,14 @@ class RawTableFile extends BaseFile {
               <input
                 id={randomId}
                 type="checkbox"
-                myType="styled"
+                mytype="styled"
                 name="used"
                 value="1"
                 style={{ display: "none" }}
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
               />
-              <label for={randomId} />
+              <label htmlFor={randomId} />
             </div>
           </td>
         </tr>

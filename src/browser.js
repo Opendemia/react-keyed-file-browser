@@ -191,7 +191,6 @@ class RawFileBrowser extends React.Component {
   }
 
   createFolder = (key) => {
-    alert("create source!")
     this.setState({
       activeAction: null,
       actionTargets: [],
@@ -202,7 +201,6 @@ class RawFileBrowser extends React.Component {
   }
 
   createSource = () => {
-    alert("create source!")
     this.setState({
       activeAction: null,
       actionTargets: [],

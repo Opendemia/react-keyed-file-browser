@@ -33,6 +33,20 @@ const Actions = (props) => {
   /** @type any */
   let actions = []
 
+  // adding an additional action, add new citation
+  actions.push(
+    <li key="action-add-source">
+      <a
+        onClick={onCreateSource}
+        href="#"
+        role="button"
+      >
+        {icons.File}
+        &nbsp;New Source
+      </a>
+    </li>
+  )
+
   if (selectedItems.length) {
     // Something is selected. Build custom actions depending on what it is.
     const selectedItemsAction = selectedItems.filter(item => item.action)
@@ -168,19 +182,7 @@ const Actions = (props) => {
           </a>
         </li>
       );
-      //adding an additional action, add new citation
-      actions.push(
-        <li key="action-add-folder">
-          <a
-            onClick={onCreateSource}
-            href="#"
-            role="button"
-          >
-            {icons.File}
-            &nbsp;New Source
-          </a>
-        </li>
-      )
+
     }
 
     if (actions.length) {

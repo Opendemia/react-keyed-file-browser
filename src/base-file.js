@@ -138,7 +138,7 @@ class BaseFile extends React.Component {
     if (!this.props.browserProps.deleteFile) {
       return
     }
-
+    alert("deleting a file")
     this.props.browserProps.deleteFile(this.props.browserProps.actionTargets)
   }
 
