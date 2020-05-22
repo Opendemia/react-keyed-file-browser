@@ -437,9 +437,8 @@ class RawFileBrowser extends React.Component {
 
   handleActionBarAddSourceClick = (event) => {
     event.preventDefault()
-    this.createSource()
+    this.setState({ selection: [], actionTargets: [] }, this.createSource)
 
-    
   }
 
   handleActionBarAddFolderClick = (event) => {
@@ -534,6 +533,8 @@ class RawFileBrowser extends React.Component {
       onDeleteFile, onDeleteFolder, onDownloadFile, onCreateSource,
     } = this.props
     const browserProps = this.getBrowserProps()
+    console.log("SELECTED ITEM IS!!")
+    console.log(selectedItems)
     const selectionIsFolder = (selectedItems.length === 1 && !selectedItems[0].size)
     let filter
     if (canFilter) {

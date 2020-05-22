@@ -34,18 +34,21 @@ const Actions = (props) => {
   let actions = []
 
   // adding an additional action, add new citation
-  actions.push(
-    <li key="action-add-source">
-      <a
-        onClick={onCreateSource}
-        href="#"
-        role="button"
-      >
-        {icons.File}
-        &nbsp;New Source
-      </a>
-    </li>
-  )
+  if (!nameFilter) {
+    actions.push(
+      <li key="action-add-source">
+        <a
+          onClick={onCreateSource}
+          href="#"
+          role="button"
+        >
+          {icons.File}
+          &nbsp;New Source
+        </a>
+      </li>
+    )
+  }
+
 
   if (selectedItems.length) {
     // Something is selected. Build custom actions depending on what it is.
