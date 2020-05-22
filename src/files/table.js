@@ -41,7 +41,7 @@ class RawTableFile extends BaseFile {
           url={url}
         >
           {icon}
-          {this.getName()}
+          {/* {this.getName()} */}
         </ConfirmDeletionRenderer>
       )
     } else if (!inAction && isRenaming) {
