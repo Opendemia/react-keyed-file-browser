@@ -191,6 +191,7 @@ class RawFileBrowser extends React.Component {
   }
 
   createFolder = (key) => {
+    alert("create source!")
     this.setState({
       activeAction: null,
       actionTargets: [],
@@ -205,7 +206,6 @@ class RawFileBrowser extends React.Component {
     this.setState({
       activeAction: null,
       actionTargets: [],
-      selection: [],
     }, () => {
       this.props.onCreateSource()
     })
@@ -439,9 +439,7 @@ class RawFileBrowser extends React.Component {
 
   handleActionBarAddSourceClick = (event) => {
     event.preventDefault()
-    if (this.state.activeAction === 'createSource') {
-      return;
-    }
+    this.createSource()
 
     
   }
