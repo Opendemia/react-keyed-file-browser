@@ -8,16 +8,13 @@ div.rendered-react-keyed-file-browser div.action-bar {
     flex-grow: 2;
     min-width: 300px;
     padding: 0.25rem 0.5rem;
-    font-size: 1rem;
     line-height: 1em;
     margin-bottom: 0.5rem;
     border: 0.1rem solid #ddd; }
   div.rendered-react-keyed-file-browser div.action-bar .item-actions {
     text-align: right;
     margin: 0;
-    padding: 0;
-    line-height: 1.5rem;
-    font-size: 1rem; }
+    padding: 0; }
   div.rendered-react-keyed-file-browser div.action-bar ul.item-actions {
     display: block;
     flex-grow: 1;
@@ -40,7 +37,6 @@ div.rendered-react-keyed-file-browser div.files table {
   -ms-user-select: none;
   user-select: none; }
   div.rendered-react-keyed-file-browser div.files table th, div.rendered-react-keyed-file-browser div.files table td {
-    font-size: 1rem;
     font-weight: normal;
     text-align: left;
     margin: 0;
