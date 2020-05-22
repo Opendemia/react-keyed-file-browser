@@ -32,13 +32,6 @@
   },
   "homepage": "https://github.com/uptick/react-keyed-file-browser#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "classnames": "^2.2.6",
-    "moment": "^2.24.0",
-    "prop-types": "^15.7.2",
-    "react-dnd": "^8.0",
-    "react-dnd-html5-backend": "^8.0"
-=======
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.3",
     "jquery": "^1.9.1",
@@ -47,7 +40,6 @@
     "prop-types": "^15.5.8",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2"
->>>>>>> c81a6291d96336141f7774b2f5696365543a03b0
   },
   "peerDependencies": {
     "react": "0.14.x || 15.x || 16.x",

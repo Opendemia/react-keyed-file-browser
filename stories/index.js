@@ -38,60 +38,7 @@ const store = new Store({ files })
 storiesOf('FileBrowser', module)
   .add('Simple Flat & Read-Only Example', () => (
     <FileBrowser
-<<<<<<< HEAD
       files={files}
-=======
-      files={[
-        {
-          key: 'animals/',
-          modified: +Moment().subtract(1, 'hours'),
-          size: 0,
-          citationID: "1234"
-        },
-        {
-          key: 'animals/dog.png',
-          modified: +Moment().subtract(1, 'hours'),
-          size: 0,
-          used: true,
-          course: "test",
-          label: {"Pink": "test"}
-        },
-        {
-          key: 'cat.png',
-          modified: +Moment().subtract(1, 'hours'),
-          size: 1.5 * 1024 * 1024,
-          used: true,
-          citationID: "1234"
-        },
-        {
-          key: 'kitten.png',
-          modified: +Moment().subtract(3, 'days'),
-          size: 545 * 1024,
-          used: true,
-          course: "test",
-          citationID: "1235",
-          label: {"Pink": "Test"}
-        },
-        {
-          key: 'elephant.png',
-          modified: +Moment().subtract(3, 'days'),
-          size: 52 * 1024,
-          used: true,
-          course: "test"
-        }
-      ]}
-      citations ={[
-        {
-          citationId: "1234",
-          quotes:[{quote: "Test", comment: "new comment"}]
-        },
-        {
-          citationId: "1235",
-          quotes:[{quote: "Test"}]
-        }
-      ]}
-      onUsedChange={(event) => {console.log(event)}}
->>>>>>> c81a6291d96336141f7774b2f5696365543a03b0
     />
   ))
   .add('Different Renderers and Groupers', () => (
