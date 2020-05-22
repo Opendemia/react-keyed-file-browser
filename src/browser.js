@@ -533,9 +533,10 @@ class RawFileBrowser extends React.Component {
       onDeleteFile, onDeleteFolder, onDownloadFile, onCreateSource,
     } = this.props
     const browserProps = this.getBrowserProps()
-    console.log("SELECTED ITEM IS!!")
-    console.log(selectedItems)
-    const selectionIsFolder = (selectedItems.length === 1 && !selectedItems[0].size)
+   
+    // overriding change, detect if file using trailing slash rather than size
+    // && !selectedItems[0].size)
+    const selectionIsFolder = (selectedItems.length === 1&& selectedItems[0].key[selectedItems[0].key.length - 1] === '/' )
     let filter
     if (canFilter) {
       filter = (
