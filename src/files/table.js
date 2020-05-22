@@ -94,7 +94,7 @@ class RawTableFile extends BaseFile {
             <div style={{ paddingLeft: depth * 16 + "px" }}>{draggable}</div>
           </td>
           <td>
-            <div class="fac fac-checkbox-o fac-success ">
+            <div className="fac fac-checkbox-o fac-success ">
               <span></span>
               <input
                 id={randomId}
@@ -105,8 +105,8 @@ class RawTableFile extends BaseFile {
                 style={{ display: "none" }}
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
-              ></input>
-              <label for={randomId}></label>
+              />
+              <label for={randomId} />
             </div>
           </td>
         </tr>
