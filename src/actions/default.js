@@ -26,6 +26,8 @@ const Actions = (props) => {
     canDownloadFile,
     onDownloadFile,
 
+    onCreateSource,
+
   } = props
 
   /** @type any */
@@ -165,6 +167,19 @@ const Actions = (props) => {
             &nbsp;Add Folder
           </a>
         </li>
+      );
+      //adding an additional action, add new citation
+      actions.push(
+        <li key="action-add-folder">
+          <a
+            onClick={onCreateSource}
+            href="#"
+            role="button"
+          >
+            {icons.File}
+            &nbsp;New Source
+          </a>
+        </li>
       )
     }
 
@@ -201,6 +216,9 @@ Actions.propTypes = {
 
   canDownloadFile: PropTypes.bool,
   onDownloadFile: PropTypes.func,
+
+  canAddSource: PropTypes.bool,
+  onCreateSource: PropTypes.func,
 }
 
 Actions.defaultProps = {
@@ -226,6 +244,8 @@ Actions.defaultProps = {
 
   canDownloadFile: false,
   onDownloadFile: null,
+
+  onCreateSource: null,
 }
 
 export default Actions

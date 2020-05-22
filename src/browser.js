@@ -91,6 +91,7 @@ class RawFileBrowser extends React.Component {
     onDeleteFolder: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     onDownloadFile: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     onUsedChange: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    
 
     onSelect: PropTypes.func,
     onSelectFile: PropTypes.func,
@@ -101,6 +102,8 @@ class RawFileBrowser extends React.Component {
 
     onFolderOpen: PropTypes.func,
     onFolderClose: PropTypes.func,
+
+    onCreateSource: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }
 
   static defaultProps = {
@@ -194,6 +197,16 @@ class RawFileBrowser extends React.Component {
       selection: [key],
     }, () => {
       this.props.onCreateFolder(key)
+    })
+  }
+
+  createSource = () => {
+    this.setState({
+      activeAction: null,
+      actionTargets: [],
+      selection: [],
+    }, () => {
+      this.props.onNewSourceAdded()
     })
   }
 
@@ -422,6 +435,16 @@ class RawFileBrowser extends React.Component {
     event.preventDefault()
     this.beginAction('delete', this.state.selection)
   }
+
+  handleActionBarAddSourceClick = (event) => {
+    event.preventDefault()
+    if (this.state.activeAction === 'createSource') {
+      return;
+    }
+
+    
+  }
+
   handleActionBarAddFolderClick = (event) => {
     event.preventDefault()
     if (this.state.activeAction === 'createFolder') {
@@ -499,6 +522,8 @@ class RawFileBrowser extends React.Component {
       deleteFolder: this.props.onDeleteFolder ? this.deleteFolder : undefined,
       usedChanged: this.usedChanged,
 
+      createSource: this.props.onNewSourceAdded ? this.createSource : undefined,
+
       getItemProps: getItemProps,
     }
   }
@@ -509,7 +534,7 @@ class RawFileBrowser extends React.Component {
       filterRendererProps, filterRenderer: FilterRenderer,
       actionRenderer: ActionRenderer,
       onCreateFolder, onRenameFile, onRenameFolder,
-      onDeleteFile, onDeleteFolder, onDownloadFile,
+      onDeleteFile, onDeleteFolder, onDownloadFile, onCreateSource,
     } = this.props
     const browserProps = this.getBrowserProps()
     const selectionIsFolder = (selectedItems.length === 1 && !selectedItems[0].size)
@@ -551,6 +576,9 @@ class RawFileBrowser extends React.Component {
 
         canDownloadFile={typeof onDownloadFile === 'function'}
         onDownloadFile={this.handleActionBarDownloadClick}
+
+        canCreateSource={typeof onCreateSource === 'function'}
+        onCreateSource={this.handleActionBarAddSourceClick}
       />
     )
 
