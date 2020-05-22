@@ -21,12 +21,16 @@ class RawListThumbnailFile extends BaseFile {
       isDragging, isRenaming, isSelected, isSelectable, isOver, isDeleting,
       showName, showSize, showModified, browserProps, connectDragPreview,
     } = this.props
+
     let icon
     if (thumbnailUrl) {
       icon = (
-        <div className="image" style={{
-          backgroundImage: 'url(' + thumbnailUrl + ')',
-        }} />
+        <div
+          className="image"
+          style={{
+            backgroundImage: 'url(' + thumbnailUrl + ')',
+          }}
+        />
       )
     } else {
       icon = browserProps.icons[this.getFileType()] || browserProps.icons.File
@@ -34,23 +38,19 @@ class RawListThumbnailFile extends BaseFile {
 
     const inAction = (isDragging || action)
 
+    const ConfirmDeletionRenderer = browserProps.confirmDeletionRenderer
+
     let name
     if (showName) {
-      if (!inAction && isDeleting) {
+      if (!inAction && isDeleting && browserProps.selection.length === 1) {
         name = (
-          <form className="deleting" onSubmit={this.handleDeleteSubmit}>
-            <a
-              href={url}
-              download="download"
-              onClick={this.handleFileClick}
-            >
-            </a>
-            <div>
-              <button type="submit">
-                Confirm Deletion
-              </button>
-            </div>
-          </form>
+          <ConfirmDeletionRenderer
+            handleDeleteSubmit={this.handleDeleteSubmit}
+            handleFileClick={this.handleFileClick}
+            url={url}
+          >
+            {this.getName()}
+          </ConfirmDeletionRenderer>
         )
       } else if (!inAction && isRenaming) {
         name = (
@@ -131,7 +131,7 @@ class RawListThumbnailFile extends BaseFile {
 @DropTarget(
   ['file', 'folder', NativeTypes.FILE],
   BaseFileConnectors.targetSource,
-  BaseFileConnectors.targetCollect,
+  BaseFileConnectors.targetCollect
 )
 class ListThumbnailFile extends RawListThumbnailFile {}
 

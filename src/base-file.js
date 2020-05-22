@@ -1,6 +1,7 @@
+// @ts-nocheck
 import PropTypes from 'prop-types'
 import React from 'react'
-
+import { moveFilesAndFolders } from './utils'
 import { extensionMapping } from './constants.js'
 
 class BaseFile extends React.Component {
@@ -76,7 +77,7 @@ class BaseFile extends React.Component {
   }
   handleItemClick = (event) => {
     event.stopPropagation()
-    this.props.browserProps.select(this.props.fileKey, 'file')
+    this.props.browserProps.select(this.props.fileKey, 'file', event.ctrlKey || event.metaKey, event.shiftKey)
   }
   handleItemDoubleClick = (event) => {
     event.stopPropagation()
@@ -137,7 +138,8 @@ class BaseFile extends React.Component {
     if (!this.props.browserProps.deleteFile) {
       return
     }
-    this.props.browserProps.deleteFile(this.props.fileKey)
+
+    this.props.browserProps.deleteFile(this.props.browserProps.actionTargets)
   }
 
   handleCancelEdit = (event) => {
@@ -170,23 +172,19 @@ class BaseFile extends React.Component {
 
 const dragSource = {
   beginDrag(props) {
-    props.browserProps.select(props.fileKey, 'file')
+    if (
+      !props.browserProps.selection.length ||
+      !props.browserProps.selection.includes(props.fileKey)
+    ) {
+      props.browserProps.select(props.fileKey, 'file')
+    }
     return {
       key: props.fileKey,
     }
   },
 
   endDrag(props, monitor, component) {
-    if (!monitor.didDrop()) return
-
-    const dropResult = monitor.getDropResult()
-    const fileNameParts = props.fileKey.split('/')
-    const fileName = fileNameParts[fileNameParts.length - 1]
-    const newKey = `${dropResult.path}${fileName}`
-    if (newKey !== props.fileKey && props.browserProps.moveFile) {
-      props.browserProps.openFolder(dropResult.path)
-      props.browserProps.moveFile(props.fileKey, newKey)
-    }
+    moveFilesAndFolders(props, monitor, component)
   },
 }
 

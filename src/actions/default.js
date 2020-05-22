@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Actions = (props) => {
   const {
-    selectedItem,
+    selectedItems,
     isFolder,
     icons,
     nameFilter,
@@ -28,14 +28,16 @@ const Actions = (props) => {
 
   } = props
 
+  /** @type any */
   let actions = []
 
-  if (selectedItem) {
+  if (selectedItems.length) {
     // Something is selected. Build custom actions depending on what it is.
-    if (selectedItem.action) {
+    const selectedItemsAction = selectedItems.filter(item => item.action)
+    if (selectedItemsAction.length === selectedItems.length && [...new Set(selectedItemsAction)].length === 1) {
       // Selected item has an active action against it. Disable all other actions.
       let actionText
-      switch (selectedItem.action) {
+      switch (selectedItemsAction[0].action) {
         case 'delete':
           actionText = 'Deleting ...'
           break
@@ -71,7 +73,8 @@ const Actions = (props) => {
         )
       }
 
-      if (selectedItem.keyDerived && !isFolder && canRenameFile) {
+      const itemsWithoutKeyDerived = selectedItems.find(item => !item.keyDerived)
+      if (!itemsWithoutKeyDerived && !isFolder && canRenameFile && selectedItems.length === 1) {
         actions.push(
           <li key="action-rename">
             <a
@@ -84,7 +87,7 @@ const Actions = (props) => {
             </a>
           </li>
         )
-      } else if (selectedItem.keyDerived && isFolder && canRenameFolder) {
+      } else if (!itemsWithoutKeyDerived && isFolder && canRenameFolder) {
         actions.push(
           <li key="action-rename">
             <a
@@ -99,7 +102,7 @@ const Actions = (props) => {
         )
       }
 
-      if (selectedItem.keyDerived && !isFolder && canDeleteFile) {
+      if (!itemsWithoutKeyDerived && !isFolder && canDeleteFile) {
         actions.push(
           <li key="action-delete">
             <a
@@ -112,7 +115,7 @@ const Actions = (props) => {
             </a>
           </li>
         )
-      } else if (selectedItem.keyDerived && isFolder && canDeleteFolder) {
+      } else if (!itemsWithoutKeyDerived && isFolder && canDeleteFolder) {
         actions.push(
           <li key="action-delete">
             <a
@@ -176,7 +179,7 @@ const Actions = (props) => {
 }
 
 Actions.propTypes = {
-  selectedItem: PropTypes.object,
+  selectedItems: PropTypes.arrayOf(PropTypes.object),
   isFolder: PropTypes.bool,
   icons: PropTypes.object,
   nameFilter: PropTypes.string,
@@ -201,7 +204,7 @@ Actions.propTypes = {
 }
 
 Actions.defaultProps = {
-  selectedItem: null,
+  selectedItems: [],
   isFolder: false,
   icons: {},
   nameFilter: '',

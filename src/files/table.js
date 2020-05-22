@@ -30,22 +30,20 @@ class RawTableFile extends BaseFile {
       browserProps.icons[this.getFileType()] || browserProps.icons.File;
     const inAction = isDragging || action;
 
-    let name;
-    if (!inAction && isDeleting) {
+    const ConfirmDeletionRenderer = browserProps.confirmDeletionRenderer
+
+    let name
+    if (!inAction && isDeleting && browserProps.selection.length === 1) {
       name = (
-        <form className="deleting" onSubmit={this.handleDeleteSubmit}>
-          <a
-            href={url || "#"}
-            download="download"
-            onClick={this.handleFileClick}
-          >
-            {icon}
-          </a>
-          <div>
-            <button type="submit">Confirm Deletion</button>
-          </div>
-        </form>
-      );
+        <ConfirmDeletionRenderer
+          handleDeleteSubmit={this.handleDeleteSubmit}
+          handleFileClick={this.handleFileClick}
+          url={url}
+        >
+          {icon}
+          {this.getName()}
+        </ConfirmDeletionRenderer>
+      )
     } else if (!inAction && isRenaming) {
       name = (
         <form className="renaming" onSubmit={this.handleRenameSubmit}>
