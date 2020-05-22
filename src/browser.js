@@ -201,12 +201,13 @@ class RawFileBrowser extends React.Component {
   }
 
   createSource = () => {
+    alert("create source!")
     this.setState({
       activeAction: null,
       actionTargets: [],
       selection: [],
     }, () => {
-      this.props.onNewSourceAdded()
+      this.props.onCreateSource()
     })
   }
 
@@ -522,7 +523,7 @@ class RawFileBrowser extends React.Component {
       deleteFolder: this.props.onDeleteFolder ? this.deleteFolder : undefined,
       usedChanged: this.usedChanged,
 
-      createSource: this.props.onNewSourceAdded ? this.createSource : undefined,
+      createSource: this.props.onCreateSource ? this.createSource : undefined,
 
       getItemProps: getItemProps,
     }
