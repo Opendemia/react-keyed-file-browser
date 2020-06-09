@@ -690,7 +690,7 @@ class RawFileBrowser extends React.Component {
     const selectedItems = []
     const findSelected = (item) => {
       console.log("test1")
-      if (selection.includes(item.key)) {
+      if (selection && selection.includes(item.key)) {
         selectedItems.push(item)
       }
       if (item.children) {
