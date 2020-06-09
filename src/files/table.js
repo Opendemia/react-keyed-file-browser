@@ -96,6 +96,7 @@ class RawTableFile extends BaseFile {
           { this.props.label &&
             <span className={`mb-1 badge badge-pill badge-${this.props.label}`}> </span> 
           }
+          this.handleUsedEdit
         </td> */}
           
           <td>
@@ -109,7 +110,7 @@ class RawTableFile extends BaseFile {
                 value="1"
                 style={{ display: "none" }}
                 checked={this.props.used}
-                onChange={this.handleUsedEdit}
+                onChange={k => {console.log("Button pressed")}}
               />
               <label htmlFor={randomId} />
             </div>
