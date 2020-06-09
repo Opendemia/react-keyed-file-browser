@@ -38,7 +38,7 @@ const Actions = (props) => {
     actions.push(
       <li key="action-add-source">
         <a
-          onClick={onCreateSource}
+          onClick={k => { console.log("props are"); console.log(props); onCreateSource()} }
           href="#"
           role="button"
         >
