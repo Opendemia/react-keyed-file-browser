@@ -308,12 +308,13 @@ class RawFileBrowser extends React.Component {
   usedChanged = (key) => {
     this.setState({
       activeAction: null,
-      actionTargets: []
-      
+      actionTargets: [],
+      selection: []
+
     }, () => {
       // selection: null
-      console.log("selection is ")
-      console.log(this.state.selection)
+      // console.log("selection is ")
+      // console.log(this.state.selection)
       this.props.onUsedChange(key)
       // console.log("BUTTON PRESSED FOR " + key)
     })
