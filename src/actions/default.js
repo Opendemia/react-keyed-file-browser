@@ -38,7 +38,7 @@ const Actions = (props) => {
     actions.push(
       <li key="action-add-source">
         <a
-          onClick={k => onCreateSource(props.browserProps.selection)}
+          onClick={onCreateSource}
           href="#"
           role="button"
         >

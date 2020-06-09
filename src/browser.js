@@ -201,6 +201,8 @@ class RawFileBrowser extends React.Component {
   }
 
   createSource = () => {
+    console.log("old selection is 2")
+    console.log(this.state.selection)
     this.setState({
       activeAction: null,
       actionTargets: [],
@@ -442,6 +444,8 @@ class RawFileBrowser extends React.Component {
 
   handleActionBarAddSourceClick = (event) => {
     event.preventDefault()
+    let oldSelction = this.state.selection
+    console.log("OLD SELECTION IS " + oldSelction)
     this.setState({ selection: [], actionTargets: [] }, this.createSource)
 
   }
@@ -541,7 +545,7 @@ class RawFileBrowser extends React.Component {
    
     // overriding change, detect if file using trailing slash rather than size
     // && !selectedItems[0].size)
-    const selectionIsFolder = (selectedItems.length === 1&& selectedItems[0].key[selectedItems[0].key.length - 1] === '/' )
+    const selectionIsFolder = (selectedItems.length === 1 && selectedItems[0].key[selectedItems[0].key.length - 1] === '/')
     let filter
     if (canFilter) {
       filter = (
