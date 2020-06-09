@@ -308,9 +308,10 @@ class RawFileBrowser extends React.Component {
   usedChanged = (key) => {
     this.setState({
       activeAction: null,
-      actionTargets: [],
-      selection: null
+      actionTargets: []
+      
     }, () => {
+      // selection: null
       //this.props.onUsedChange(key)
       console.log("BUTTON PRESSED FOR " + key)
     })
@@ -689,8 +690,7 @@ class RawFileBrowser extends React.Component {
     }
     const selectedItems = []
     const findSelected = (item) => {
-      console.log("test1")
-      if (selection && selection.includes(item.key)) {
+      if (selection.includes(item.key)) {
         selectedItems.push(item)
       }
       if (item.children) {
