@@ -308,11 +308,11 @@ class RawFileBrowser extends React.Component {
   usedChanged = (key) => {
     this.setState({
       activeAction: null,
-      actionTarget: null,
+      actionTargets: [],
       selection: null
     }, () => {
-      // this.props.onUsedChange(key)
-      console.log("BUTTON PRESSED FOR " + key)
+      this.props.onUsedChange(key)
+      // console.log("BUTTON PRESSED FOR " + key)
     })
   }
 
