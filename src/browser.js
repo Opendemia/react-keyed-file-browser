@@ -311,8 +311,8 @@ class RawFileBrowser extends React.Component {
       actionTargets: [],
       selection: null
     }, () => {
-      this.props.onUsedChange(key)
-      // console.log("BUTTON PRESSED FOR " + key)
+      //this.props.onUsedChange(key)
+      console.log("BUTTON PRESSED FOR " + key)
     })
   }
 
@@ -689,6 +689,7 @@ class RawFileBrowser extends React.Component {
     }
     const selectedItems = []
     const findSelected = (item) => {
+      console.log("test1")
       if (selection.includes(item.key)) {
         selectedItems.push(item)
       }
