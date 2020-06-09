@@ -445,7 +445,9 @@ class RawFileBrowser extends React.Component {
   handleActionBarAddSourceClick = (event) => {
     event.preventDefault()
     let oldSelction = this.state.selection
-    console.log("OLD SELECTION IS " + oldSelction)
+    console.log("OLD SELECTION IS ")
+    console.log(oldSelction)
+    console.log(this.state)
     this.setState({ selection: [], actionTargets: [] }, this.createSource)
 
   }
