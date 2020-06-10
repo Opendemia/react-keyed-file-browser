@@ -201,13 +201,16 @@ class RawFileBrowser extends React.Component {
   }
 
   createSource = () => {
+    let oldSelection = this.state.selection
     console.log("old selection is 2")
-    console.log(this.state.selection)
+    console.log(oldSelection)
+
     this.setState({
       activeAction: null,
       actionTargets: [],
+      selection: []
     }, () => {
-      this.props.onCreateSource()
+      this.props.onCreateSource(oldSelection)
     })
   }
 
@@ -444,11 +447,7 @@ class RawFileBrowser extends React.Component {
 
   handleActionBarAddSourceClick = (event) => {
     event.preventDefault()
-    let oldSelction = this.state.selection
-    console.log("OLD SELECTION IS ")
-    console.log(oldSelction)
-    console.log(this.state)
-    this.setState({ selection: [], actionTargets: [] }, this.createSource)
+    this.setState({ actionTargets: [] }, this.createSource)
 
   }
 
