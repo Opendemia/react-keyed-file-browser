@@ -38,7 +38,6 @@ function getItemProps(file, browserProps) {
 class RawFileBrowser extends React.Component {
   static propTypes = {
     files: PropTypes.array.isRequired,
-    citations: PropTypes.array.isRequired,
     actions: PropTypes.node,
     showActionBar: PropTypes.bool.isRequired,
     canFilter: PropTypes.bool.isRequired,
@@ -658,7 +657,6 @@ class RawFileBrowser extends React.Component {
     let renderedFiles
 
     let files = this.props.files.concat([])
-    let citations = this.props.citations.concat([])
     if (this.state.activeAction === 'createFolder') {
       files.push({
         key: this.state.actionTargets[0],
@@ -672,9 +670,7 @@ class RawFileBrowser extends React.Component {
       files.map((file) => {
         let skip = false
         terms.map((term) => {
-          let citation = citations.find(citation => file.citationID === citation.citationId)
-          if(citation == undefined){ skip = true }
-          else if (file.key.toLowerCase().trim().indexOf(term) === -1 && citation.quotes.findIndex(quote => (quote.quote && quote.quote.toLowerCase().trim().indexOf(term) > -1) || (quote.comment && quote.comment.toLowerCase().trim().indexOf(term) > -1)) === -1) {
+          if (file.key.toLowerCase().trim().indexOf(term) === -1 && file.citation.quotes.findIndex(quote => (quote.quote && quote.quote.toLowerCase().trim().indexOf(term) > -1) || (quote.comment && quote.comment.toLowerCase().trim().indexOf(term) > -1)) === -1) {
             skip = true
           }
         })

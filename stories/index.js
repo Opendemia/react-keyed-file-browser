@@ -143,16 +143,6 @@ storiesOf('FileBrowser', module)
           course: "test"
         }
       ]}
-      citations ={[
-        {
-          citationId: "1234",
-          quotes:[{quote: "Test", comment: "new comment"}]
-        },
-        {
-          citationId: "1235",
-          quotes:[{quote: "Test"}]
-        }
-      ]}
       renderStyle="list"
       onDownloadFile={() => { }}
       headerRenderer={null}
