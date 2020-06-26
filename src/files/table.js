@@ -104,7 +104,6 @@ class RawTableFile extends BaseFile {
               <input
                 id={randomId}
                 type="checkbox"
-                mytype="styled"
                 name="used"
                 value="1"
                 style={{ display: "none" }}
@@ -118,7 +117,7 @@ class RawTableFile extends BaseFile {
         {isSelected && this.props.course ? (
           <tr>
             <td style={{paddingTop: '0rem !important'}}>
-              <div style={{fontWeight: '600', marginLeft: '1rem'}}>Course: {this.props.course}</div>
+              <div style={{fontWeight: 600, marginLeft: '1rem'}}>Course: {this.props.course}</div>
             </td>
           </tr>
         ) : null}
