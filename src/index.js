@@ -15,6 +15,7 @@ import * as Icons from './icons'
 import * as Utils from './utils'
 
 export default FileBrowser
+
 export {
   RawFileBrowser, // Use this one if you want to wrap with dragdrop context yourself.
 

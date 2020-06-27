@@ -1,5 +1,18 @@
 $main-padding: 0.5rem !default
-$theme-colour-text: #337ab7 !default
+$theme-colour-text: black !default
+
+@import 'node_modules/bootstrap/scss/bootstrap'
+@import './table-style'
+@import './list-style'
+
+a
+  color: black
+  &:hover
+    color: black
+
+.btn-file
+  border-radius: 0
+  color: white
 
 div.rendered-react-keyed-file-browser
   div.action-bar
@@ -34,7 +47,3 @@ div.rendered-react-keyed-file-browser
         margin: 0
         &:not(:last-child)
           margin-right: $main-padding
-
-@import './table-style'
-@import './list-style'
-@import 'node_modules/bootstrap/scss/bootstrap'

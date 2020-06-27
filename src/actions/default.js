@@ -36,16 +36,13 @@ const Actions = (props) => {
   // adding an additional action, add new citation
   if (!nameFilter) {
     actions.push(
-      <li key="action-add-source">
-        <a
+        <button
           onClick={onCreateSource}
-          href="#"
-          role="button"
+          className="btn btn-success btn-block btn-file"
         >
-          {icons.File}
+          {icons.Add}
           &nbsp;New Source
-        </a>
-      </li>
+        </button>
     )
   }
 
@@ -169,29 +166,6 @@ const Actions = (props) => {
       } else {
         actions = (<div className="item-actions">&nbsp;</div>)
       }
-    }
-  } else {
-    // Nothing selected: We're in the 'root' folder. Only allowed action is adding a folder.
-    if (canCreateFolder && !nameFilter) {
-      actions.push(
-        <li key="action-add-folder">
-          <a
-            onClick={onCreateFolder}
-            href="#"
-            role="button"
-          >
-            {icons.Folder}
-            &nbsp;Add Folder
-          </a>
-        </li>
-      );
-
-    }
-
-    if (actions.length) {
-      actions = (<ul className="item-actions">{actions}</ul>)
-    } else {
-      actions = (<div className="item-actions">&nbsp;</div>)
     }
   }
 

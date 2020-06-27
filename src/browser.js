@@ -20,6 +20,7 @@ import { SortByName } from './sorters'
 
 import { isFolder } from './utils'
 import { DefaultAction } from './actions'
+import { Icons } from '.'
 
 const SEARCH_RESULTS_PER_PAGE = 20
 
@@ -56,6 +57,7 @@ class RawFileBrowser extends React.Component {
       Rename: PropTypes.element,
       Loading: PropTypes.element,
       Download: PropTypes.element,
+      Add: PropTypes.element
     }),
 
     nestChildren: PropTypes.bool.isRequired,
@@ -201,7 +203,6 @@ class RawFileBrowser extends React.Component {
 
   createSource = () => {
     let oldSelection = this.state.selection
-    console.log("old selection is 2")
     console.log(oldSelection)
 
     this.setState({
@@ -646,9 +647,26 @@ class RawFileBrowser extends React.Component {
     this.deleteFile(this.state.selection.filter(selection => selection[selection.length - 1] !== '/'))
   }
 
+  addProject = () => {
+    return (
+        <tr>
+          <td colSpan={3}>
+            <button
+              onClick={this.handleActionBarAddFolderClick}
+              className="btn btn-transparent btn-block btn-file"
+            >
+              {this.getBrowserProps().icons.Add}
+              &nbsp;Add Folder
+            </button>
+          </td>
+        </tr>
+    )
+  }
+
   render() {
     const { selection } = this.state
     const browserProps = this.getBrowserProps()
+    const AddProject = this.addProject()
     const headerProps = {
       browserProps,
       fileKey: '',
@@ -769,6 +787,7 @@ class RawFileBrowser extends React.Component {
         renderedFiles = (
           <table cellSpacing="0" cellPadding="0">
             {header}
+            {AddProject}
             {contents}
           </table>
         )
