@@ -47,33 +47,7 @@ const Actions = (props) => {
   }
 
 
-  // if (selectedItems.length) {
-  //   // Something is selected. Build custom actions depending on what it is.
-  //   const selectedItemsAction = selectedItems.filter(item => item.action)
-  //   if (selectedItemsAction.length === selectedItems.length && [...new Set(selectedItemsAction)].length === 1) {
-  //     // Selected item has an active action against it. Disable all other actions.
-  //     let actionText
-  //     switch (selectedItemsAction[0].action) {
-  //       case 'delete':
-  //         actionText = 'Deleting ...'
-  //         break
-
-  //       case 'rename':
-  //         actionText = 'Renaming ...'
-  //         break
-
-  //       default:
-  //         actionText = 'Moving ...'
-  //         break
-  //     }
-
-  //     actions = (
-  //       // TODO: Enable plugging in custom spinner.
-  //       <div className="item-actions">
-  //         {icons.Loading} {actionText}
-  //       </div>
-  //     )
-  //   } else {
+  //else {
   //     if (isFolder && canCreateFolder && !nameFilter) {
   //       actions.push(
   //         <li key="action-add-folder">
@@ -89,58 +63,12 @@ const Actions = (props) => {
   //       )
   //     }
 
-  //     const itemsWithoutKeyDerived = selectedItems.find(item => !item.keyDerived)
-  //   if (!itemsWithoutKeyDerived && isFolder && canRenameFolder) {
-  //       actions.push(
-  //         <li key="action-rename">
-  //           <a
-  //             onClick={onRenameFolder}
-  //             href="#"
-  //             role="button"
-  //           >
-  //             {icons.Rename}
-  //             &nbsp;Rename
-  //           </a>
-  //         </li>
-  //       )
-  //     }
-  //    if (!itemsWithoutKeyDerived && isFolder && canDeleteFolder) {
-  //       actions.push(
-  //         <li key="action-delete">
-  //           <a
-  //             onClick={onDeleteFolder}
-  //             href="#"
-  //             role="button"
-  //           >
-  //             {icons.Delete}
-  //             &nbsp;Delete
-  //           </a>
-  //         </li>
-  //       )
-  //     }
 
-  //     if (!isFolder && canDownloadFile) {
-  //       actions.push(
-  //         <li key="action-download">
-  //           <a
-  //             onClick={onDownloadFile}
-  //             href="#"
-  //             role="button"
-  //           >
-  //             {icons.Download}
-  //             &nbsp;Download
-  //           </a>
-  //         </li>
-  //       )
-  //     }
-
-      if (actions) {
-        actions = (<div className="item-actions col-12">{actions}</div>)
-      } else {
-        actions = (<ul className="item-actions">&nbsp;</ul>)
-      }
-   // }
-  //}
+  if (actions) {
+    actions = (<div className="item-actions col-12">{actions}</div>)
+  } else {
+    actions = (<ul className="item-actions">&nbsp;</ul>)
+  }
 
   return actions
 }
