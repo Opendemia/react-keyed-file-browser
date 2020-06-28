@@ -133,12 +133,11 @@ class BaseFile extends React.Component {
     }
     this.props.browserProps.beginAction('delete', this.props.fileKey)
   }
-  handleDeleteSubmit = (event) => {
-    event.preventDefault()
+  handleDeleteSubmit = (files) => {
     if (!this.props.browserProps.deleteFile) {
       return
     }
-    this.props.browserProps.deleteFile(this.props.browserProps.actionTargets)
+    this.props.browserProps.deleteFile(files)
   }
 
   handleCancelEdit = (event) => {

@@ -31,11 +31,11 @@ const Actions = (props) => {
   } = props
 
   /** @type any */
-  let actions = []
+  let actions;
 
   // adding an additional action, add new citation
   if (!nameFilter) {
-    actions.push(
+    actions = (
         <button
           onClick={onCreateSource}
           className="btn btn-success btn-block btn-file"
@@ -47,127 +47,100 @@ const Actions = (props) => {
   }
 
 
-  if (selectedItems.length) {
-    // Something is selected. Build custom actions depending on what it is.
-    const selectedItemsAction = selectedItems.filter(item => item.action)
-    if (selectedItemsAction.length === selectedItems.length && [...new Set(selectedItemsAction)].length === 1) {
-      // Selected item has an active action against it. Disable all other actions.
-      let actionText
-      switch (selectedItemsAction[0].action) {
-        case 'delete':
-          actionText = 'Deleting ...'
-          break
+  // if (selectedItems.length) {
+  //   // Something is selected. Build custom actions depending on what it is.
+  //   const selectedItemsAction = selectedItems.filter(item => item.action)
+  //   if (selectedItemsAction.length === selectedItems.length && [...new Set(selectedItemsAction)].length === 1) {
+  //     // Selected item has an active action against it. Disable all other actions.
+  //     let actionText
+  //     switch (selectedItemsAction[0].action) {
+  //       case 'delete':
+  //         actionText = 'Deleting ...'
+  //         break
 
-        case 'rename':
-          actionText = 'Renaming ...'
-          break
+  //       case 'rename':
+  //         actionText = 'Renaming ...'
+  //         break
 
-        default:
-          actionText = 'Moving ...'
-          break
-      }
+  //       default:
+  //         actionText = 'Moving ...'
+  //         break
+  //     }
 
-      actions = (
-        // TODO: Enable plugging in custom spinner.
-        <div className="item-actions">
-          {icons.Loading} {actionText}
-        </div>
-      )
-    } else {
-      if (isFolder && canCreateFolder && !nameFilter) {
-        actions.push(
-          <li key="action-add-folder">
-            <a
-              onClick={onCreateFolder}
-              href="#"
-              role="button"
-            >
-              {icons.Folder}
-              &nbsp;Add Subfolder
-            </a>
-          </li>
-        )
-      }
+  //     actions = (
+  //       // TODO: Enable plugging in custom spinner.
+  //       <div className="item-actions">
+  //         {icons.Loading} {actionText}
+  //       </div>
+  //     )
+  //   } else {
+  //     if (isFolder && canCreateFolder && !nameFilter) {
+  //       actions.push(
+  //         <li key="action-add-folder">
+  //           <a
+  //             onClick={onCreateFolder}
+  //             href="#"
+  //             role="button"
+  //           >
+  //             {icons.Folder}
+  //             &nbsp;Add Subfolder
+  //           </a>
+  //         </li>
+  //       )
+  //     }
 
-      const itemsWithoutKeyDerived = selectedItems.find(item => !item.keyDerived)
-      if (!itemsWithoutKeyDerived && !isFolder && canRenameFile && selectedItems.length === 1) {
-        actions.push(
-          <li key="action-rename">
-            <a
-              onClick={onRenameFile}
-              href="#"
-              role="button"
-            >
-              {icons.Rename}
-              &nbsp;Rename
-            </a>
-          </li>
-        )
-      } else if (!itemsWithoutKeyDerived && isFolder && canRenameFolder) {
-        actions.push(
-          <li key="action-rename">
-            <a
-              onClick={onRenameFolder}
-              href="#"
-              role="button"
-            >
-              {icons.Rename}
-              &nbsp;Rename
-            </a>
-          </li>
-        )
-      }
+  //     const itemsWithoutKeyDerived = selectedItems.find(item => !item.keyDerived)
+  //   if (!itemsWithoutKeyDerived && isFolder && canRenameFolder) {
+  //       actions.push(
+  //         <li key="action-rename">
+  //           <a
+  //             onClick={onRenameFolder}
+  //             href="#"
+  //             role="button"
+  //           >
+  //             {icons.Rename}
+  //             &nbsp;Rename
+  //           </a>
+  //         </li>
+  //       )
+  //     }
+  //    if (!itemsWithoutKeyDerived && isFolder && canDeleteFolder) {
+  //       actions.push(
+  //         <li key="action-delete">
+  //           <a
+  //             onClick={onDeleteFolder}
+  //             href="#"
+  //             role="button"
+  //           >
+  //             {icons.Delete}
+  //             &nbsp;Delete
+  //           </a>
+  //         </li>
+  //       )
+  //     }
 
-      if (!itemsWithoutKeyDerived && !isFolder && canDeleteFile) {
-        actions.push(
-          <li key="action-delete">
-            <a
-              onClick={onDeleteFile}
-              href="#"
-              role="button"
-            >
-              {icons.Delete}
-              &nbsp;Delete
-            </a>
-          </li>
-        )
-      } else if (!itemsWithoutKeyDerived && isFolder && canDeleteFolder) {
-        actions.push(
-          <li key="action-delete">
-            <a
-              onClick={onDeleteFolder}
-              href="#"
-              role="button"
-            >
-              {icons.Delete}
-              &nbsp;Delete
-            </a>
-          </li>
-        )
-      }
+  //     if (!isFolder && canDownloadFile) {
+  //       actions.push(
+  //         <li key="action-download">
+  //           <a
+  //             onClick={onDownloadFile}
+  //             href="#"
+  //             role="button"
+  //           >
+  //             {icons.Download}
+  //             &nbsp;Download
+  //           </a>
+  //         </li>
+  //       )
+  //     }
 
-      if (!isFolder && canDownloadFile) {
-        actions.push(
-          <li key="action-download">
-            <a
-              onClick={onDownloadFile}
-              href="#"
-              role="button"
-            >
-              {icons.Download}
-              &nbsp;Download
-            </a>
-          </li>
-        )
-      }
-
-      if (actions.length) {
-        actions = (<ul className="item-actions">{actions}</ul>)
+      if (actions) {
+        actions = (<div className="item-actions col-12">{actions}</div>)
       } else {
-        actions = (<div className="item-actions">&nbsp;</div>)
+        actions = (<ul className="item-actions">&nbsp;</ul>)
       }
-    }
-  }
+   // }
+  //}
 
   return actions
 }

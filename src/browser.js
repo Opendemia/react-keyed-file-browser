@@ -642,7 +642,6 @@ class RawFileBrowser extends React.Component {
   }
 
   handleMultipleDeleteSubmit = () => {
-    console.log(this)
     this.deleteFolder(this.state.selection.filter(selection => selection[selection.length - 1] === '/'))
     this.deleteFile(this.state.selection.filter(selection => selection[selection.length - 1] !== '/'))
   }
@@ -653,7 +652,7 @@ class RawFileBrowser extends React.Component {
           <td colSpan={3}>
             <button
               onClick={this.handleActionBarAddFolderClick}
-              className="btn btn-transparent btn-block btn-file"
+              className="btn btn-transparent btn-block"
             >
               {this.getBrowserProps().icons.Add}
               &nbsp;Add Folder
