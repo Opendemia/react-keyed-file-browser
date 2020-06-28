@@ -127,12 +127,13 @@ class BaseFolder extends React.Component {
     }
     this.props.browserProps.beginAction('delete', this.props.fileKey)
   }
-  handleDeleteSubmit = (event) => {
-    event.preventDefault()
+  
+  handleDeleteSubmit = (folder) => {
     if (!this.props.browserProps.deleteFolder) {
       return
     }
-    this.props.browserProps.deleteFolder(this.props.browserProps.actionTargets)
+
+    this.props.browserProps.deleteFolder(folder)
   }
 
   handleCancelEdit = (event) => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import ClassNames from 'classnames'
 import { DragSource, DropTarget } from 'react-dnd'
@@ -7,30 +8,24 @@ import BaseFolder, { BaseFolderConnectors } from './../base-folder.js'
 import { BaseFileConnectors } from './../base-file.js'
 
 class RawTableFolder extends BaseFolder {
+
+  constructor(props){
+    super(props)
+
+    this.state = {isRenaming: false, newName: this.getName()}
+  }
+
   render() {
     const {
-      isOpen, isDragging, isDeleting, isRenaming, isDraft, isOver, isSelected,
-      action, url, browserProps, connectDragPreview, depth,
+      isOpen, isDragging, isDraft, isOver, isSelected,
+      action, browserProps, connectDragPreview, depth, fileKey
     } = this.props
 
     const icon = browserProps.icons[isOpen ? 'FolderOpen' : 'Folder']
-    const inAction = (isDragging || action)
-
-    const ConfirmDeletionRenderer = browserProps.confirmDeletionRenderer
 
     let name
-    if (!inAction && isDeleting && browserProps.selection.length === 1) {
-      name = (
-        <ConfirmDeletionRenderer
-          handleDeleteSubmit={this.handleDeleteSubmit}
-          handleFileClick={this.handleFileClick}
-          url={url}
-        >
-          {icon}
-          {/* {this.getName()} */}
-        </ConfirmDeletionRenderer>
-      )
-    } else if ((!inAction && isRenaming) || isDraft) {
+    
+    if (this.state.isRenaming || isDraft) {
       name = (
         <div>
           <form className="renaming" onSubmit={this.handleRenameSubmit}>
@@ -83,7 +78,20 @@ class RawTableFolder extends BaseFolder {
           </div>
         </td>
         <td />
-        <td />
+        <td>
+            <div className="row pl-1">
+              <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Rename Item">
+                <button className="btn btn-transparent pr-0" onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}>
+                  {browserProps.icons.Rename}
+                </button>
+              </span>
+              <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Delete Item">
+                <button className="btn btn-transparent pr-0" onClick={() => this.handleDeleteSubmit([fileKey])}>
+                  {browserProps.icons.Delete}
+                </button>
+              </span>
+            </div>
+        </td>
       </tr>
     )
 

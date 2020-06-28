@@ -110,7 +110,7 @@ class RawTableFile extends BaseFile {
                 </button>
               </span>
               <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Delete Item">
-                <button className="btn btn-transparent pr-0" onClick={() => this.handleDeleteSubmit(fileKey)}>
+                <button className="btn btn-transparent pr-0" onClick={() => this.handleDeleteSubmit([fileKey])}>
                   {browserProps.icons.Delete}
                 </button>
               </span>
