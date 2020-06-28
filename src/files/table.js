@@ -87,11 +87,12 @@ class RawTableFile extends BaseFile {
         </td> */}
           
           <td>
-            <div className="fac fac-checkbox-o fac-success ">
+            <div className="fac fac-checkbox-o fac-success ml-2">
               <span></span>
               <input
                 id={randomId}
                 type="checkbox"
+                mytype="styled"
                 name="used"
                 value="1"
                 style={{ display: "none" }}
@@ -102,7 +103,7 @@ class RawTableFile extends BaseFile {
             </div>
           </td>
           <td>
-            <div className="row">
+            <div className="row pl-1">
               <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Rename Item">
                 <button className="btn btn-transparent pr-0" onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}>
                   {browserProps.icons.Rename}
