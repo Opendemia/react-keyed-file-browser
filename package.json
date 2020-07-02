@@ -39,7 +39,8 @@
     "popper.js": "^1.16.1",
     "prop-types": "^15.5.8",
     "react-dnd": "^2.1.4",
-    "react-dnd-html5-backend": "^2.1.2"
+    "react-dnd-html5-backend": "^2.1.2",
+    "react-tooltip": "^4.2.7"
   },
   "peerDependencies": {
     "react": "0.14.x || 15.x || 16.x",

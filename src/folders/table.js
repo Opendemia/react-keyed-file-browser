@@ -6,6 +6,7 @@ import { NativeTypes } from 'react-dnd-html5-backend'
 
 import BaseFolder, { BaseFolderConnectors } from './../base-folder.js'
 import { BaseFileConnectors } from './../base-file.js'
+import ReactTooltip from 'react-tooltip'
 
 class RawTableFolder extends BaseFolder {
 
@@ -14,6 +15,17 @@ class RawTableFolder extends BaseFolder {
 
     this.state = {isRenaming: false, newName: this.getName()}
   }
+
+  // componentDidMount(){
+  //   console.log(this.rename)
+  //   this.rename.tooltip()
+  //   this.delete.tooltip()
+  // }
+
+  // componentDidUpdate() {
+  //   this.rename.tooltip()
+  //   this.delete.tooltip()
+  // }
 
   render() {
     const {
@@ -62,37 +74,47 @@ class RawTableFolder extends BaseFolder {
     }
 
     const folder = (
-      <tr
-        className={ClassNames('folder', {
-          pending: action,
-          dragging: isDragging,
-          dragover: isOver,
-          selected: isSelected,
-        })}
-        onClick={this.handleFolderClick}
-        onDoubleClick={this.handleFolderDoubleClick}
-      >
-        <td className="name">
-          <div style={{ paddingLeft: (depth * 16) + 'px' }}>
-            {draggable}
-          </div>
-        </td>
-        <td />
-        <td>
-            <div className="row pl-1">
-              <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Rename Item">
-                <button className="btn btn-transparent pr-0" onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}>
+        <tr
+          className={ClassNames('folder', {
+            pending: action,
+            dragging: isDragging,
+            dragover: isOver,
+            selected: isSelected,
+          })}
+          onClick={this.handleFolderClick}
+          onDoubleClick={this.handleFolderDoubleClick}
+        >
+          <td className="name">
+            <div style={{ paddingLeft: (depth * 16) + 'px' }}>
+              {draggable}
+            </div>
+          </td>
+          <td />
+          <td>
+              <div className="row pl-1">
+                <button 
+                  className="btn btn-transparent pr-0" 
+                  onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}
+                  data-tip data-for="renameFolder"
+                  >
                   {browserProps.icons.Rename}
                 </button>
-              </span>
-              <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Delete Item">
-                <button className="btn btn-transparent pr-0" onClick={() => this.handleDeleteSubmit([fileKey])}>
+                <ReactTooltip id="renameFolder" className="tooltip tooltip-inner">
+                  <span>Rename Folder</span>
+                </ReactTooltip>
+                <button 
+                  className="btn btn-transparent pr-0" 
+                  onClick={() => this.handleDeleteSubmit([fileKey])}
+                  data-tip data-for="deleteFolder"
+                  >
                   {browserProps.icons.Delete}
                 </button>
-              </span>
-            </div>
-        </td>
-      </tr>
+                <ReactTooltip id="deleteFolder" className="tooltip tooltip-inner">
+                  <span>Delete Folder</span>
+                </ReactTooltip>
+              </div>
+          </td>
+        </tr>
     )
 
     return this.connectDND(folder)

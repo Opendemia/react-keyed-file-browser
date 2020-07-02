@@ -140,6 +140,10 @@ class BaseFolder extends React.Component {
     this.props.browserProps.endAction()
   }
 
+  handleAddFolder = (evt) => {
+    this.props.browserProps.createFolder(evt)
+  }
+
   toggleFolder = () => {
     this.props.browserProps.toggleFolder(this.props.fileKey)
   }

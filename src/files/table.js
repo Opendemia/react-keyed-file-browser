@@ -1,11 +1,11 @@
 // @ts-nocheck
 import React from "react";
-import Moment from "moment";
 import ClassNames from "classnames";
 import { DragSource, DropTarget } from "react-dnd";
 import { NativeTypes } from "react-dnd-html5-backend";
 
 import BaseFile, { BaseFileConnectors } from "./../base-file.js";
+import ReactTooltip from 'react-tooltip'
 
 class RawTableFile extends BaseFile {
 
@@ -104,16 +104,26 @@ class RawTableFile extends BaseFile {
           </td>
           <td>
             <div className="row pl-1">
-              <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Rename Item">
-                <button className="btn btn-transparent pr-0" onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}>
-                  {browserProps.icons.Rename}
-                </button>
-              </span>
-              <span className="d-inline-block" tabIndex={0} data-toggle="tooltip" title="Delete Item">
-                <button className="btn btn-transparent pr-0" onClick={() => this.handleDeleteSubmit([fileKey])}>
-                  {browserProps.icons.Delete}
-                </button>
-              </span>
+              <button 
+                className="btn btn-transparent pr-0" 
+                onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}
+                data-tip data-for="renameFile"
+              >
+                {browserProps.icons.Rename}
+              </button>
+              <ReactTooltip id="renameFile" className="tooltip tooltip-inner">
+                <span>Rename File</span>
+              </ReactTooltip>
+              <button 
+                className="btn btn-transparent pr-0" 
+                onClick={() => this.handleDeleteSubmit([fileKey])}
+                data-tip data-for="deleteFile"
+              >
+                {browserProps.icons.Delete}
+              </button>
+              <ReactTooltip id="deleteFile" className="tooltip tooltip-inner">
+                <span>Delete File</span>
+              </ReactTooltip>
             </div>
           </td>
         </tr>
