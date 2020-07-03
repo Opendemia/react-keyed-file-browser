@@ -453,7 +453,14 @@ class RawFileBrowser extends React.Component {
       return
     }
     this.setState(prevState => {
-      let addKey = '__new__/'
+      let addKey = ''
+      if (prevState.selection) {
+        addKey += prevState.selection
+        if (addKey.substr(addKey.length - 1, addKey.length) !== '/') {
+          addKey += '/'
+        }
+      }
+      addKey += '__new__/'
       const stateChanges = {
         actionTargets: [addKey],
         activeAction: 'createFolder',
