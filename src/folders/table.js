@@ -16,17 +16,6 @@ class RawTableFolder extends BaseFolder {
     this.state = {isRenaming: false, newName: this.getName()}
   }
 
-  // componentDidMount(){
-  //   console.log(this.rename)
-  //   this.rename.tooltip()
-  //   this.delete.tooltip()
-  // }
-
-  // componentDidUpdate() {
-  //   this.rename.tooltip()
-  //   this.delete.tooltip()
-  // }
-
   render() {
     const {
       isOpen, isDragging, isDraft, isOver, isSelected,

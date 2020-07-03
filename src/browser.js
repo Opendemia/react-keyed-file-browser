@@ -317,11 +317,7 @@ class RawFileBrowser extends React.Component {
       selection: []
 
     }, () => {
-      // selection: null
-      // console.log("selection is ")
-      // console.log(this.state.selection)
       this.props.onUsedChange(key)
-      // console.log("BUTTON PRESSED FOR " + key)
     })
   }
 
@@ -457,14 +453,7 @@ class RawFileBrowser extends React.Component {
       return
     }
     this.setState(prevState => {
-      let addKey = ''
-      if (prevState.selection) {
-        addKey += prevState.selection
-        if (addKey.substr(addKey.length - 1, addKey.length) !== '/') {
-          addKey += '/'
-        }
-      }
-      addKey += '__new__/'
+      let addKey = '__new__/'
       const stateChanges = {
         actionTargets: [addKey],
         activeAction: 'createFolder',
