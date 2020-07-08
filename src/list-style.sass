@@ -6,9 +6,15 @@ $selection-text-colour: #fff
 $dragover-colour: #eee
 
 div.rendered-file-browser
+
   div.files
     height: 78vh
     overflow-y: scroll
+    overflow-x: hidden
+
+    @media screen and ( max-width: 992px )
+      overflow-x: scroll
+      
     // list styles
     li.file, li.folder
       &.pending, &.dragging
@@ -115,3 +121,4 @@ div.rendered-file-browser
             opacity: 0.8
   p.loading, p.empty
     margin: 16px 0
+  

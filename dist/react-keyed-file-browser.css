@@ -7226,7 +7226,11 @@ div.rendered-react-keyed-file-browser div.files table {
 
 div.rendered-file-browser div.files {
   height: 78vh;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  overflow-x: hidden; }
+  @media screen and (max-width: 992px) {
+    div.rendered-file-browser div.files {
+      overflow-x: scroll; } }
   div.rendered-file-browser div.files li.file.pending, div.rendered-file-browser div.files li.file.dragging, div.rendered-file-browser div.files li.folder.pending, div.rendered-file-browser div.files li.folder.dragging {
     opacity: 0.4; }
   div.rendered-file-browser div.files li.file.dragover, div.rendered-file-browser div.files li.folder.dragover {
