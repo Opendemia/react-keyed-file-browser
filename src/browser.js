@@ -161,6 +161,8 @@ class RawFileBrowser extends React.Component {
     addFolder: null,
   }
 
+  preventRender = false
+
   componentDidMount() {
     if (this.props.renderStyle === 'table' && this.props.nestChildren) {
       console.warn('Invalid settings: Cannot nest table children in file browser')
@@ -602,13 +604,14 @@ class RawFileBrowser extends React.Component {
     } = this.props
     const browserProps = this.getBrowserProps()
     let renderedFiles = []
-
+    let isEditing = false
     files.map((file) => {
       const thisItemProps = {
         ...browserProps.getItemProps(file, browserProps),
         depth: this.state.nameFilter ? 0 : depth,
       }
 
+      isEditing = isEditing || thisItemProps.isDraft
       if (!isFolder(file)) {
         renderedFiles.push(
           <FileRenderer
@@ -630,11 +633,14 @@ class RawFileBrowser extends React.Component {
           )
         }
         if (this.state.nameFilter || (thisItemProps.isOpen && !browserProps.nestChildren)) {
-          renderedFiles = renderedFiles.concat(this.renderFiles(file.children, depth + 1))
+          let fileResults = this.renderFiles(file.children, depth + 1)
+          renderedFiles = renderedFiles.concat(fileResults[0])
+          isEditing = isEditing || fileResults[1]
         }
       }
     })
-    return renderedFiles
+
+    return [renderedFiles, isEditing]
   }
 
   handleMultipleDeleteSubmit = () => {
@@ -642,13 +648,14 @@ class RawFileBrowser extends React.Component {
     this.deleteFile(this.state.selection.filter(selection => selection[selection.length - 1] !== '/'))
   }
 
-  addProject = () => {
+  addProject = (disabled) => {
     return (
         <tr>
           <td colSpan={3}>
             <button
               onClick={this.handleActionBarAddFolderClick}
               className="btn btn-transparent btn-block"
+              disabled={disabled}
             >
               {this.getBrowserProps().icons.Add}
               &nbsp;Add Folder
@@ -661,7 +668,6 @@ class RawFileBrowser extends React.Component {
   render() {
     const { selection } = this.state
     const browserProps = this.getBrowserProps()
-    const AddProject = this.addProject()
     const headerProps = {
       browserProps,
       fileKey: '',
@@ -726,7 +732,9 @@ class RawFileBrowser extends React.Component {
 
     let header
     /** @type any */
-    let contents = this.renderFiles(files, 0)
+    let fileResults = this.renderFiles(files, 0)
+    let contents = fileResults[0]
+    const AddProject = this.addProject(fileResults[1])
     switch (this.props.renderStyle) {
       case 'table':
         if (!contents.length) {

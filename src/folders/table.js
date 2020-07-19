@@ -16,6 +16,7 @@ class RawTableFolder extends BaseFolder {
     this.state = {isRenaming: false, newName: this.getName()}
   }
 
+
   render() {
     const {
       isOpen, isDragging, isDraft, isOver, isSelected,

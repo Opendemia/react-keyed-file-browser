@@ -49,6 +49,7 @@ class BaseFolder extends React.Component {
       this.selectAllNewName()
     }
   }
+  
   selectAllNewName = () => {
     window.requestAnimationFrame(() => {
       const currentName = this.newNameRef.value
