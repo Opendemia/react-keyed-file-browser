@@ -103,7 +103,7 @@ class RawTableFile extends BaseFile {
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
               />
-              <label htmlFor={randomId} className="testLabel" style={{ paddingTop: "50px" }} />
+              <label htmlFor={randomId} className="testLabel" style={{ paddingTop: ".7rem" }} />
               <ReactTooltip id="markAsUsed" className="tooltip tooltip-inner">
                 <span>Mark As Used</span>
               </ReactTooltip>
