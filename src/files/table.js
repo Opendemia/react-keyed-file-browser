@@ -16,7 +16,7 @@ class RawTableFile extends BaseFile {
   }
 
   render() {
-    const checkboxClasses = 'fac fac-checkbox-o fac-success ml-2 float-right test11' + this.props.used ? ' used' : ''
+    const checkboxClasses = this.props.used ? 'fac fac-checkbox-o fac-success ml-2 float-right used' : 'fac fac-checkbox-o fac-success ml-2 float-right test11'
 
     const {
       isDragging,
