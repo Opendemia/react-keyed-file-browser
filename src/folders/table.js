@@ -10,10 +10,10 @@ import ReactTooltip from 'react-tooltip'
 
 class RawTableFolder extends BaseFolder {
 
-  constructor(props){
+  constructor(props) {
     super(props)
 
-    this.state = {isRenaming: false, newName: this.getName()}
+    this.state = { isRenaming: false, newName: this.getName() }
   }
 
 
@@ -26,7 +26,7 @@ class RawTableFolder extends BaseFolder {
     const icon = browserProps.icons[isOpen ? 'FolderOpen' : 'Folder']
 
     let name
-    
+
     if (this.state.isRenaming || isDraft) {
       name = (
         <div>
@@ -64,47 +64,47 @@ class RawTableFolder extends BaseFolder {
     }
 
     const folder = (
-        <tr
-          className={ClassNames('folder', {
-            pending: action,
-            dragging: isDragging,
-            dragover: isOver,
-            selected: isSelected,
-          })}
-          onClick={this.handleFolderClick}
-          onDoubleClick={this.handleFolderDoubleClick}
-        >
-          <td className="name">
-            <div style={{ paddingLeft: (depth * 16) + 'px' }}>
-              {draggable}
-            </div>
-          </td>
-          <td />
-          <td>
-              <div className="row pl-1">
-                <button 
-                  className="btn btn-transparent pr-0" 
-                  onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}
-                  data-tip data-for="renameFolder"
-                  >
-                  {browserProps.icons.Rename}
-                </button>
-                <ReactTooltip id="renameFolder" className="tooltip tooltip-inner">
-                  <span>Rename Folder</span>
-                </ReactTooltip>
-                <button 
-                  className="btn btn-transparent pr-0" 
-                  onClick={() => this.handleDeleteSubmit([fileKey])}
-                  data-tip data-for="deleteFolder"
-                  >
-                  {browserProps.icons.Delete}
-                </button>
-                <ReactTooltip id="deleteFolder" className="tooltip tooltip-inner">
-                  <span>Delete Folder</span>
-                </ReactTooltip>
-              </div>
-          </td>
-        </tr>
+      <tr
+        className={ClassNames('folder', {
+          pending: action,
+          dragging: isDragging,
+          dragover: isOver,
+          selected: isSelected,
+        })}
+        onClick={this.handleFolderClick}
+        onDoubleClick={this.handleFolderDoubleClick}
+      >
+        <td className="name">
+          <div style={{ paddingLeft: (depth * 16) + 'px' }}>
+            {draggable}
+          </div>
+        </td>
+        <td />
+        <td>
+          <div className="row pl-1">
+            <button
+              className="btn btn-transparent pr-0"
+              onClick={() => { this.setState({ isRenaming: !this.state.isRenaming }) }}
+              data-tip data-for="renameFolder"
+            >
+              {browserProps.icons.Rename}
+            </button>
+            <ReactTooltip id="renameFolder" className="tooltip tooltip-inner">
+              <span>Rename Folder</span>
+            </ReactTooltip>
+            <button
+              className="btn btn-transparent pr-0"
+              onClick={() => this.handleDeleteSubmit([fileKey])}
+              data-tip data-for="deleteFolder"
+            >
+              {browserProps.icons.Delete}
+            </button>
+            <ReactTooltip id="deleteFolder" className="tooltip tooltip-inner">
+              <span>Delete Folder</span>
+            </ReactTooltip>
+          </div>
+        </td>
+      </tr>
     )
 
     return this.connectDND(folder)
@@ -117,7 +117,7 @@ class RawTableFolder extends BaseFolder {
   BaseFileConnectors.targetSource,
   BaseFileConnectors.targetCollect
 )
-class TableFolder extends RawTableFolder {}
+class TableFolder extends RawTableFolder { }
 
 export default TableFolder
 export { RawTableFolder }
