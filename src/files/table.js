@@ -91,7 +91,7 @@ class RawTableFile extends BaseFile {
 
           <td>
 
-            <div className={checkboxClasses} style={{paddingTop: '.7rem !important'}} data-tip data-for="markAsUsed">
+            <div className={checkboxClasses} data-tip data-for="markAsUsed">
               <span></span>
               <input
                 id={randomId}
@@ -103,7 +103,7 @@ class RawTableFile extends BaseFile {
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
               />
-              <label htmlFor={randomId} />
+              <label htmlFor={randomId} style={{ paddingTop: '.7rem !important' }} />
               <ReactTooltip id="markAsUsed" className="tooltip tooltip-inner">
                 <span>Mark as used</span>
               </ReactTooltip>
