@@ -91,7 +91,7 @@ class RawTableFile extends BaseFile {
 
           <td>
 
-            <div className={checkboxClasses}>
+            <div className={checkboxClasses} style={{paddingTop: ".7rem !important"}} >
               <span></span>
               <input
                 id={randomId}
@@ -99,34 +99,18 @@ class RawTableFile extends BaseFile {
                 mytype="styled"
                 name="used"
                 value="1"
-                style={{ display: "none", paddingTop: ".7rem !important" }}
+                style={{ display: "none" }}
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
               />
-              <label htmlFor={randomId} />
               <ReactTooltip id="renameFile" className="tooltip tooltip-inner">
+                <label htmlFor={randomId} />
               </ReactTooltip>
             </div>
 
           </td>
           <td>
             <div className="row pl-1">
-              <div className={checkboxClasses}>
-                <span></span>
-                <input
-                  id={randomId}
-                  type="checkbox"
-                  mytype="styled"
-                  name="used"
-                  value="1"
-                  style={{ display: "none", paddingTop: ".7rem !important" }}
-                  checked={this.props.used}
-                  onChange={this.handleUsedEdit}
-                />
-                <label htmlFor={randomId} />
-                <ReactTooltip id="renameFile" className="tooltip tooltip-inner">
-                </ReactTooltip>
-              </div>
               <button
                 className="btn btn-transparent pr-0"
                 onClick={() => { this.setState({ isRenaming: !this.state.isRenaming }) }}
