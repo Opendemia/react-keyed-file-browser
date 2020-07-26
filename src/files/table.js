@@ -16,7 +16,7 @@ class RawTableFile extends BaseFile {
   }
 
   render() {
-    const checkboxClasses = this.props.used ? 'fac fac-checkbox-o fac-success ml-2 float-right used1' : 'fac fac-checkbox-o fac-success ml-2 float-right test11'
+    const checkboxClasses = this.props.used ? 'fac fac-checkbox-o fac-success ml-2 float-right usedCheckbox used' : 'fac fac-checkbox-o fac-success ml-2 float-right usedCheckbox'
 
     const {
       isDragging,
@@ -91,11 +91,9 @@ class RawTableFile extends BaseFile {
 
           <td>
 
-            <div className={checkboxClasses} style={{paddingTop: ".7rem !important"}} >
+            <div className={checkboxClasses} style={{paddingTop: '.7rem !important'}} data-tip data-for="markAsUsed">
               <span></span>
               <input
-                data-tip 
-                data-for="markAsUsed"
                 id={randomId}
                 type="checkbox"
                 mytype="styled"
