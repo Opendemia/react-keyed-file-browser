@@ -452,24 +452,24 @@ class RawFileBrowser extends React.Component {
   handleActionBarAddFolderClick = (event) => {
     event.preventDefault()
     if (this.state.activeAction === 'createFolder') {
-      console.log("already conpleting")
       return
     }
 
     this.setState(prevState => {
       let addKey = ''
+
+      // checks to see what was selected previously
       if (prevState.selection && prevState.selection.length > 0 && prevState.selection !== '/' && prevState.selection !== " " && prevState.selection !== "") {
-        console.log("inside 1")
-        console.log(prevState)
         addKey += prevState.selection
-        console.log("1" + addKey + "2")
         if (addKey.substr(addKey.length - 1, addKey.length) !== '/') {
-          console.log('inside 1.1')
+          // previously selected file, add / to create folder
           addKey += '/'
         }else{
+          // previously seelcted folder, add new folder
           addKey += '__new__/'
         }
       } else {
+        // previous selectino was empty
         addKey = '__new__/'
       }
 
@@ -481,7 +481,6 @@ class RawFileBrowser extends React.Component {
       console.log(stateChanges)
 
       if (prevState.selection) {
-        console.log("inside 2")
 
         stateChanges.openFolders = {
           ...prevState.openFolders,
