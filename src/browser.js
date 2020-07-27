@@ -455,6 +455,7 @@ class RawFileBrowser extends React.Component {
       console.log("already conpleting")
       return
     }
+
     this.setState(prevState => {
       let addKey = ''
       if (prevState.selection) {
@@ -465,9 +466,10 @@ class RawFileBrowser extends React.Component {
           console.log('inside 1.1')
           addKey += '/'
         }
+      } else {
+        addKey += '__new__/'
       }
 
-      addKey += '__new__/'
       const stateChanges = {
         actionTargets: [addKey],
         activeAction: 'createFolder',
