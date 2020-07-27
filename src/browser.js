@@ -460,6 +460,7 @@ class RawFileBrowser extends React.Component {
       if (prevState.selection) {
         console.log("inside 1")
         addKey += prevState.selection
+        console.log(addKey)
         if (addKey.substr(addKey.length - 1, addKey.length) !== '/') {
           console.log('inside 1.1')
           addKey += '/'
