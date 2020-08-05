@@ -454,26 +454,40 @@ class RawFileBrowser extends React.Component {
     if (this.state.activeAction === 'createFolder') {
       return
     }
+
     this.setState(prevState => {
       let addKey = ''
-      if (prevState.selection) {
+
+      // checks to see what was selected previously
+      if (prevState.selection && prevState.selection.length > 0 && prevState.selection !== '/' && prevState.selection !== " " && prevState.selection !== "") {
         addKey += prevState.selection
         if (addKey.substr(addKey.length - 1, addKey.length) !== '/') {
+          // previously selected file, add / to create folder
           addKey += '/'
+        }else{
+          // previously seelcted folder, add new folder
+          addKey += '__new__/'
         }
+      } else {
+        // previous selectino was empty
+        addKey = '__new__/'
       }
-      addKey += '__new__/'
+
       const stateChanges = {
         actionTargets: [addKey],
         activeAction: 'createFolder',
         selection: [addKey],
       }
+      console.log(stateChanges)
+
       if (prevState.selection) {
+
         stateChanges.openFolders = {
           ...prevState.openFolders,
           [this.state.selection]: true,
         }
       }
+      console.log(stateChanges)
       return stateChanges
     })
   }

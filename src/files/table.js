@@ -9,12 +9,15 @@ import ReactTooltip from 'react-tooltip'
 
 class RawTableFile extends BaseFile {
 
-  constructor(props){
+
+  constructor(props) {
     super(props)
-    this.state = {isRenaming: false, newName: this.getName()}
+    this.state = { isRenaming: false, newName: this.getName() }
   }
 
   render() {
+    const checkboxClasses = this.props.used ? 'fac fac-checkbox-o fac-success ml-2 float-right usedCheckbox used' : 'fac fac-checkbox-o fac-success ml-2 float-right usedCheckbox'
+
     const {
       isDragging,
       isOver,
@@ -31,7 +34,7 @@ class RawTableFile extends BaseFile {
       browserProps.icons[this.getFileType()] || browserProps.icons.File;
 
     let name
-    
+
     if (this.state.isRenaming) {
       name = (
         <form className="renaming" onSubmit={this.handleRenameSubmit}>
@@ -63,7 +66,7 @@ class RawTableFile extends BaseFile {
     }
 
     //random number is generated to keep id's unique so check boxes will function correctly
-    let randomId = "box-"+this.getName()+"-"+Math.floor(Math.random() * 10000000000)
+    let randomId = "box-" + this.getName() + "-" + Math.floor(Math.random() * 10000000000)
     let row = (
       <tbody>
         <tr
@@ -79,15 +82,16 @@ class RawTableFile extends BaseFile {
           <td className="name">
             <div style={{ paddingLeft: depth * 16 + "px" }}>{draggable}</div>
           </td>
-          
-         {/* <td> 
+
+          {/* <td> 
           { this.props.label &&
             <span className={`mb-1 badge badge-pill badge-${this.props.label}`}> </span> 
           }
         </td> */}
-          
+
           <td>
-            <div className="fac fac-checkbox-o fac-success ml-2">
+
+            <div className={checkboxClasses} data-tip data-for="markAsUsed">
               <span></span>
               <input
                 id={randomId}
@@ -99,14 +103,18 @@ class RawTableFile extends BaseFile {
                 checked={this.props.used}
                 onChange={this.handleUsedEdit}
               />
-              <label htmlFor={randomId} />
+              <label htmlFor={randomId} className="testLabel" style={{ paddingTop: ".7rem" }} />
+              <ReactTooltip id="markAsUsed" className="tooltip tooltip-inner">
+                <span>Mark As Used</span>
+              </ReactTooltip>
             </div>
+
           </td>
           <td>
             <div className="row pl-1">
-              <button 
-                className="btn btn-transparent pr-0" 
-                onClick={() => {this.setState({isRenaming: !this.state.isRenaming})}}
+              <button
+                className="btn btn-transparent pr-0"
+                onClick={() => { this.setState({ isRenaming: !this.state.isRenaming }) }}
                 data-tip data-for="renameFile"
               >
                 {browserProps.icons.Rename}
@@ -114,8 +122,8 @@ class RawTableFile extends BaseFile {
               <ReactTooltip id="renameFile" className="tooltip tooltip-inner">
                 <span>Rename File</span>
               </ReactTooltip>
-              <button 
-                className="btn btn-transparent pr-0" 
+              <button
+                className="btn btn-transparent pr-0"
                 onClick={() => this.handleDeleteSubmit([fileKey])}
                 data-tip data-for="deleteFile"
               >
@@ -129,8 +137,8 @@ class RawTableFile extends BaseFile {
         </tr>
         {isSelected && this.props.course ? (
           <tr>
-            <td style={{paddingTop: '0rem !important'}}>
-              <div style={{fontWeight: 600, marginLeft: '1rem'}}>Course: {this.props.course}</div>
+            <td style={{ paddingTop: '0rem !important' }}>
+              <div style={{ fontWeight: 600, marginLeft: '1rem' }}>Course: {this.props.course}</div>
             </td>
           </tr>
         ) : null}
@@ -151,7 +159,7 @@ class RawTableFile extends BaseFile {
   BaseFileConnectors.targetSource,
   BaseFileConnectors.targetCollect
 )
-class TableFile extends RawTableFile {}
+class TableFile extends RawTableFile { }
 
 export default TableFile;
 export { RawTableFile };
