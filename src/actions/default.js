@@ -34,6 +34,9 @@ const Actions = (props) => {
   let actions;
 
   // adding an additional action, add new citation
+  console.log("sitems are")
+  console.log(props)
+  console.log(selectedItems)
   if (!nameFilter) {
     actions = (
         <button
