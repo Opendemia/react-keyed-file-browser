@@ -41,7 +41,7 @@ const Actions = (props) => {
           className="btn btn-success btn-block btn-file"
         >
           {icons.Add}
-          &nbsp;New Source
+          &nbsp;New Source {selectedItems.length >0 ? <span>testing</span>}
         </button>
     )
   }
