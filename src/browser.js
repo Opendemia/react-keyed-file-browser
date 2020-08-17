@@ -194,6 +194,7 @@ class RawFileBrowser extends React.Component {
   }
 
   createFolder = (key) => {
+    console.log("creating folder " + " key is " + key)
     this.setState({
       activeAction: null,
       actionTargets: [],
