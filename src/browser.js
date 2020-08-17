@@ -199,7 +199,7 @@ class RawFileBrowser extends React.Component {
     // root key is folder name but at root
     let rootKey = key
     if (rootKey.length > 0) {
-      const secondLastSlash = key.subsring(0, key.length - 1).lastIndexOf('/')
+      const secondLastSlash = key.substring(0, key.length - 1).lastIndexOf('/')
 
       if (secondLastSlash > -1) {
         rootKey = key.substring(secondLastSlash)
