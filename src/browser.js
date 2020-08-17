@@ -202,7 +202,7 @@ class RawFileBrowser extends React.Component {
       const secondLastSlash = key.substring(0, key.length - 1).lastIndexOf('/')
 
       if (secondLastSlash > -1) {
-        rootKey = key.substring(secondLastSlash) + 1
+        rootKey = key.substring(secondLastSlash + 1)
       }
     }
     console.log("rootkey is")
@@ -211,9 +211,9 @@ class RawFileBrowser extends React.Component {
     this.setState({
       activeAction: null,
       actionTargets: [],
-      selection: [key],
+      selection: [rootKey],
     }, () => {
-      this.props.onCreateFolder(key)
+      this.props.onCreateFolder(rootKey)
     })
   }
 
