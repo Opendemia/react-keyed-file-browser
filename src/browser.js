@@ -195,6 +195,19 @@ class RawFileBrowser extends React.Component {
 
   createFolder = (key) => {
     console.log("creating folder " + " key is " + key)
+
+    // root key is folder name but at root
+    let rootKey = key
+    if (rootKey.length > 0) {
+      const secondLastSlash = key.subsring(0, key.length - 1).lastIndexOf('/')
+
+      if (secondLastSlash > -1) {
+        rootKey = key.substring(secondLastSlash)
+      }
+    }
+    console.log("rootkey is")
+    console.log(rootKey)
+
     this.setState({
       activeAction: null,
       actionTargets: [],
