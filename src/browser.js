@@ -194,12 +194,26 @@ class RawFileBrowser extends React.Component {
   }
 
   createFolder = (key) => {
+    console.log("creating folder " + " key is " + key)
+
+    // root key is folder name but at root
+    let rootKey = key
+    // if (rootKey.length > 0) {
+    //   const secondLastSlash = key.substring(0, key.length - 1).lastIndexOf('/')
+
+    //   if (secondLastSlash > -1) {
+    //     rootKey = key.substring(secondLastSlash + 1)
+    //   }
+    // }
+    // console.log("rootkey is")
+    // console.log(rootKey)
+
     this.setState({
       activeAction: null,
       actionTargets: [],
-      selection: [key],
+      selection: [rootKey],
     }, () => {
-      this.props.onCreateFolder(key)
+      this.props.onCreateFolder(rootKey)
     })
   }
 
@@ -456,22 +470,23 @@ class RawFileBrowser extends React.Component {
     }
 
     this.setState(prevState => {
-      let addKey = ''
+      let addKey = '__new__/'
 
-      // checks to see what was selected previously
-      if (prevState.selection && prevState.selection.length > 0 && prevState.selection !== '/' && prevState.selection !== " " && prevState.selection !== "") {
-        addKey += prevState.selection
-        if (addKey.substr(addKey.length - 1, addKey.length) !== '/') {
-          // previously selected file, add / to create folder
-          addKey += '/'
-        }else{
-          // previously seelcted folder, add new folder
-          addKey += '__new__/'
-        }
-      } else {
-        // previous selectino was empty
-        addKey = '__new__/'
-      }
+      // removed since folder is going to root every time
+      // // checks to see what was selected previously
+      // if (prevState.selection && prevState.selection.length > 0 && prevState.selection !== '/' && prevState.selection !== " " && prevState.selection !== "") {
+      //   addKey += prevState.selection
+      //   if (addKey.substr(addKey.length - 1, addKey.length) !== '/') {
+      //     // previously selected file, add / to create folder
+      //     addKey += '/'
+      //   }else{
+      //     // previously seelcted folder, add new folder
+      //     addKey += '__new__/'
+      //   }
+      // } else {
+      //   // previous selectino was empty
+      //   addKey = '__new__/'
+      // }
 
       const stateChanges = {
         actionTargets: [addKey],
