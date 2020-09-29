@@ -80,7 +80,7 @@ class RawTableFolder extends BaseFolder {
           </div>
         </td>
         <td>
-          <button className="btn btn-transparent pr-0 float-right">
+          <button className="btn btn-transparent pr-0 float-right" onClick={() => browserProps.shareFolder(fileKey)}>
             {browserProps.icons.Share}
           </button>
         </td>

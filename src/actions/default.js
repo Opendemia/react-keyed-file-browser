@@ -28,6 +28,8 @@ const Actions = (props) => {
 
     onCreateSource,
 
+    onShareFolder,
+
   } = props
 
   /** @type any */
@@ -99,6 +101,8 @@ Actions.propTypes = {
 
   canAddSource: PropTypes.bool,
   onCreateSource: PropTypes.func,
+
+  onShareFolder: PropTypes.func,
 }
 
 Actions.defaultProps = {
@@ -126,6 +130,8 @@ Actions.defaultProps = {
   onDownloadFile: null,
 
   onCreateSource: null,
+
+  onShareFolder: null,
 }
 
 export default Actions

@@ -105,6 +105,8 @@ class RawFileBrowser extends React.Component {
     onFolderClose: PropTypes.func,
 
     onCreateSource: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+
+    onShareFolder: PropTypes.func,
   }
 
   static defaultProps = {
@@ -541,6 +543,8 @@ class RawFileBrowser extends React.Component {
       usedChanged: this.usedChanged,
 
       createSource: this.props.onCreateSource ? this.createSource : undefined,
+
+      shareFolder: this.props.onShareFolder,
 
       getItemProps: getItemProps,
     }
