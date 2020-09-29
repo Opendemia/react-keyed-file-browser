@@ -48,6 +48,7 @@ const FontAwesomeIcons = (majorVersion = 4) => {
         Loading: <i className="fa fa-circle-o-notch fa-spin" aria-hidden="true" />,
         Download: <i className="fa fa-download" aria-hidden="true" />,
         Add: <i className="fa fa-plus" aria-hidden="true" />,
+        Share: <i className="fa fa-user-plus" aria-hidden="true" />,
       }
     case 5:
       IsFontAwesomeLoaded(5)
@@ -69,6 +70,7 @@ const FontAwesomeIcons = (majorVersion = 4) => {
         Loading: <i className="fas fa-circle-notch fa-spin" aria-hidden="true" />,
         Download: <i className="fas fa-download" aria-hidden="true" />,
         Add: <i className="fas fa-plus" aria-hidden="true" />,
+        Share: <i className="fas fa-user-plus" aria-hidden="true" />,
       }
     default:
       console.warn(

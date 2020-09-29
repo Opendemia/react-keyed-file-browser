@@ -16,7 +16,7 @@ class RawTableFile extends BaseFile {
   }
 
   render() {
-    const checkboxClasses = this.props.used ? 'fac fac-checkbox-o fac-success ml-2 float-right usedCheckbox used' : 'fac fac-checkbox-o fac-success ml-2 float-right usedCheckbox'
+    const checkboxClasses = this.props.used ? 'fac fac-checkbox-o fac-success float-right mr-1 usedCheckbox used' : 'fac fac-checkbox-o mr-1 fac-success float-right usedCheckbox'
 
     const {
       isDragging,
@@ -83,9 +83,9 @@ class RawTableFile extends BaseFile {
             <div style={{ paddingLeft: depth * 16 + "px" }}>{draggable}</div>
           </td>
 
-          {/* <td> 
+          {/* <td>
           { this.props.label &&
-            <span className={`mb-1 badge badge-pill badge-${this.props.label}`}> </span> 
+            <span className={`mb-1 badge badge-pill badge-${this.props.label}`}> </span>
           }
         </td> */}
 

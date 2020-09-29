@@ -79,7 +79,11 @@ class RawTableFolder extends BaseFolder {
             {draggable}
           </div>
         </td>
-        <td />
+        <td>
+          <button className="btn btn-transparent pr-0 float-right">
+            {browserProps.icons.Share}
+          </button>
+        </td>
         <td>
           <div className="row pl-1">
             <button
