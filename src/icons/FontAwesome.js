@@ -49,6 +49,7 @@ const FontAwesomeIcons = (majorVersion = 4) => {
         Download: <i className="fa fa-download" aria-hidden="true" />,
         Add: <i className="fa fa-plus" aria-hidden="true" />,
         Share: <i className="fa fa-user-plus" aria-hidden="true" />,
+        Shared: <i className="fa fa-user-friends"></i>
       }
     case 5:
       IsFontAwesomeLoaded(5)
@@ -71,6 +72,7 @@ const FontAwesomeIcons = (majorVersion = 4) => {
         Download: <i className="fas fa-download" aria-hidden="true" />,
         Add: <i className="fas fa-plus" aria-hidden="true" />,
         Share: <i className="fas fa-user-plus" aria-hidden="true" />,
+        Shared: <i className="fas fa-user-friends"></i>,
       }
     default:
       console.warn(

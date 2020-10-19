@@ -19,7 +19,7 @@ class RawTableFolder extends BaseFolder {
 
   render() {
     const {
-      isOpen, isDragging, isDraft, isOver, isSelected,
+      isOpen, isDragging, isDraft, isOver, isSelected, shared,
       action, browserProps, connectDragPreview, depth, fileKey
     } = this.props
 
@@ -48,7 +48,9 @@ class RawTableFolder extends BaseFolder {
         <div>
           <a onClick={this.toggleFolder}>
             {icon}
-            {this.getName()}
+            {this.getName() + "  "} 
+            {shared &&
+            browserProps.icons.Shared}
           </a>
         </div>
       )
