@@ -687,7 +687,7 @@ class RawFileBrowser extends React.Component {
               disabled={disabled}
               >
               {this.getBrowserProps().icons.Share}
-                &nbsp;New Shared Project
+                &nbsp;Group Project
               </button>
             </div>
           </td>
