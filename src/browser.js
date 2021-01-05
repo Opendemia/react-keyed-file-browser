@@ -685,6 +685,7 @@ class RawFileBrowser extends React.Component {
               onClick={this.props.onAddSharedFolder}
               className="btn btn-transparent btn-block col-6"
               disabled={disabled}
+              style={{marginTop:"0px"}}
               >
               {this.getBrowserProps().icons.Share}
                 &nbsp;Group Project
