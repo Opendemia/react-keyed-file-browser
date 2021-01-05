@@ -679,7 +679,7 @@ class RawFileBrowser extends React.Component {
                 disabled={disabled}
               >
                 {this.getBrowserProps().icons.Add}
-                &nbsp;Add Folder
+                &nbsp;New Project
               </button>
               <button
               onClick={this.props.onAddSharedFolder}
@@ -687,7 +687,7 @@ class RawFileBrowser extends React.Component {
               disabled={disabled}
               >
               {this.getBrowserProps().icons.Share}
-                &nbsp;Add Shared Folder
+                &nbsp;New Shared Project
               </button>
             </div>
           </td>
