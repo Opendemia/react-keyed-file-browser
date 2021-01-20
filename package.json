@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/opendemia/react-keyed-file-browser.git"
+    "url": "git+https://github.com/Opendemia/react-keyed-file-browser.git"
   },
   "publishConfig": {
     "registry":"https://npm.pkg.github.com"
@@ -29,7 +29,7 @@
     "s3"
   ],
   "author": "Opendemia",
-  "homepage": "https://github.com/opendemia/react-keyed-file-browser#readme",
+  "homepage": "https://github.com/Opendemia/react-keyed-file-browser#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.3",
