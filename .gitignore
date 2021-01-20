@@ -44,3 +44,6 @@ demo-site/dist/
 #mac
 .DS_Store
 dist/.DS_Store
+
+#Webstorm
+.idea

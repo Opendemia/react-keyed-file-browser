@@ -105,6 +105,9 @@ class RawFileBrowser extends React.Component {
     onFolderClose: PropTypes.func,
 
     onCreateSource: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+
+    onShareFolder: PropTypes.func,
+    onAddSharedFolder: PropTypes.func,
   }
 
   static defaultProps = {
@@ -557,6 +560,9 @@ class RawFileBrowser extends React.Component {
 
       createSource: this.props.onCreateSource ? this.createSource : undefined,
 
+      shareFolder: this.props.onShareFolder,
+      addSharedFolder: this.props.onShareFolder,
+
       getItemProps: getItemProps,
     }
   }
@@ -681,18 +687,30 @@ class RawFileBrowser extends React.Component {
     return (
         <tr>
           <td colSpan={3}>
-            <button
-              onClick={this.handleActionBarAddFolderClick}
-              className="btn btn-transparent btn-block"
+            <div className="row">
+              <button
+                onClick={this.handleActionBarAddFolderClick}
+                className="btn btn-transparent btn-block col-6"
+                disabled={disabled}
+              >
+                {this.getBrowserProps().icons.Add}
+                &nbsp;New Project
+              </button>
+              <button
+              onClick={this.props.onAddSharedFolder}
+              className="btn btn-transparent btn-block col-6"
               disabled={disabled}
-            >
-              {this.getBrowserProps().icons.Add}
-              &nbsp;Add Folder
-            </button>
+              style={{marginTop:"0px"}}
+              >
+              {this.getBrowserProps().icons.Share}
+                &nbsp;Group Project
+              </button>
+            </div>
           </td>
         </tr>
     )
   }
+
 
   render() {
     const { selection } = this.state
